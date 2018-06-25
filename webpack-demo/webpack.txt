@@ -1,0 +1,35 @@
+创建项目
+mkdir webpack-demo
+
+
+初始化npm，创建package.json文件
+npm init -y
+
+在本地安装webpack然后安装webpack-cil (用于在命令行上运行webpack工具)
+npm install webpack webpack-cli --save-dev
+
+
+压缩js 需要下载指定webpack版本2.3.3
+cnom install webpack@2.3.3 --save-dev
+
+加载css
+npm install --save-dev style-loader css-loader
+加载图片
+npm install --save-dev file-loader
+加载字体
+npm install --save-dev file-loader  （安装一次即可）
+加载数据  如JSON文件，CSV，TSV和XML
+npm install --save-dev csv-loader xml-loader
+
+
+
+
+
+
+
+
+上传代码忽略node_modules文件用Git Bash
+
+根目录下右键选择“Git Bash Here”进入bash命令窗口；
+输入vim .gitignore命令，打开文件（没有文件会自动创建）；
+按i键切换到编辑状态，输入规则，例如node_modules/，然后按Esc键退出编辑，输入:wq保存退出。
