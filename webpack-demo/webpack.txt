@@ -9,8 +9,9 @@ npm init -y
 npm install webpack webpack-cli --save-dev
 
 
-压缩js 需要下载指定webpack版本2.3.3
-cnom install webpack@2.3.3 --save-dev
+配置加载器需要下载指定webpack版本2.3.3
+4.0.0版本以上还未找到合适的方法
+cnpm install webpack@2.3.3 --save-dev
 
 加载css
 npm install --save-dev style-loader css-loader
