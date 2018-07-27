@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原生交互</title>
+</head>
+<body>
+	<script>
+    
+        //安卓 ios h5交互返回按钮
+        var ua = navigator.userAgent;
+        if(ua.indexOf("HRDiPhoneApp")!=-1){
+            setupWebViewJavascriptBridge(function(bridge) {
+                $('#btn').click(function(){
+                    bridge.callHandler('hrdAppCloseH5', function(response) {});
+                    return fasle;
+                });
+            });} else if(ua.indexOf("HRDAdroidApp")!=-1){
+            $('#btn').click(function(){
+                H5Activity.hrdAppCloseH5();
+                return fasle;
+            });
+        }else{
+            $('#btn').click(function(){
+                location.href="/";
+            });
+        };
+
+        function setupWebViewJavascriptBridge(callback) {
+            //Android使用
+            if (window.WebViewJlavascriptBridge) {
+                callback(WebViewJavascriptBridge)
+            } else {
+                document.addEventListener(
+                    'WebViewJavascriptBridgeReady'
+                    , function() {
+                        callback(WebViewJavascriptBridge)
+                    },
+                    false
+                );
+            }
+            //iOS使用
+            if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+            if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+            window.WVJBCallbacks = [callback];
+            var WVJBIframe = document.createElement('iframe');
+            WVJBIframe.style.display = 'none';
+            WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+            document.documentElement.appendChild(WVJBIframe);
+            setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0);
+
+        };
+ 
+</script>
+</body>
+</html>
