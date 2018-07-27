@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>放款管理</title>
+	<link rel="stylesheet" href="static/lib/reset.css">
+	<link rel="stylesheet" href="static/lib/shipei.css">
+	<link rel="stylesheet" href="static/lib/swiper/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+	<div class="applyFor-seach">
+        <form>
+                <div class="seach">
+            <p class="seach-list-left"><span>借款搜索</span><em></em></p>
+            <ul class="seach-ul">
+                <li><a href="javascript:;">借款搜索</a></li>
+                <li><a href="javascript:;">还款搜索</a></li>
+            </ul>
+            <input type="text" class="seach-list-right" maxlength="22" name="name">
+            <button  type="submit" class="seach-btn">搜索</button>
+        </div>
+        </form>
+    
+	</div>
+<div class="swiper-container makeLoans-swiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide current"><a href="javascript:;">待放款</a></div>
+        <div class="swiper-slide"><a href="javascript:;">当日待放款</a></div>
+        <div class="swiper-slide"><a href="javascript:;">已放款</a></div>
+        <div class="swiper-slide"><a href="javascript:;">已还清</a></div>
+        <div class="swiper-slide"><a href="javascript:;">已取消</a></div>
+    </div>
+</div>
+    
+     <div class="content_box">
+      <!--待放款-->
+        <div class="loan">
+            <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span></p>
+                    <p>待放款</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                    <li>借款期限:<span>2个月</span></li>
+                </ul>
+            </div>
+              <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span></p>
+                    <p>待放款</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                    <li>借款期限:<span>2个月</span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 当日待放款 -->
+        <div class="loan">
+              <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span></p>
+                    <p>预计当日放款</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                    <li>借款期限:<span>2个月</span></li>
+                </ul>
+            </div>
+              <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span></p>
+                    <p>预计当日放款</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                    <li>借款期限:<span>2个月</span></li>
+                </ul>
+
+            </div>
+        </div>
+        <!-- 以放款 -->
+           <div class="loan loan-yifang">
+              <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span><label>(1/4)</label></p>
+                    <p>已放款</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                    <li>借款状态:<span>正常</span></li>
+                </ul>
+                  <p class="btn-loan-box">
+                    <button class="btn-loan">退款</button>
+                </p>
+            </div>
+              <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span><label>(1/4)</label></p>
+                    <p>已放款</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                    <li class="overdue">借款状态:<span>逾期</span></li>
+                </ul>
+               <p class="btn-loan-box">
+                    <button class="btn-loan">退款</button>
+                </p>
+            </div>
+        </div>
+        <!-- 已还清 -->
+         <div class="loan loan-huanqing">
+              <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span><label>(4/4)</label></p>
+                    <p>已还清</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                    <li>借款结清日:<span>2018-07-02</span></li>
+                </ul>
+            </div>
+              <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span><label>(4/4)</label></p>
+                    <p>已还清</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                     <li>借款结清日:<span>2018-07-02</span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 已取消 -->
+          <div class="loan loan-cancel">
+              <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span></p>
+                    <p>已取消</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                    <li>借款期限:<span>2018-07-02</span></li>
+                    <li>取消原因:<span>显示取消原因</span></li>
+                </ul>
+            </div>
+              <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span></p>
+                    <p>已取消</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                     <li>借款期限:<span>2018-07-02</span></li>
+                     <li>取消原因:<span>显示取消原因</span></li>
+                </ul>
+            </div>
+        </div>
+     </div>
+	<script src="static/lib/zepto.min.js"></script>
+	<script src='static/lib/swiper/swiper-3.4.2.min.js'></script>
+	<script src="static/js/index.js"></script>
+</body>
+</html>

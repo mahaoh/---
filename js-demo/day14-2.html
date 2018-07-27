@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #randomBox{
+      display: inline;
+    }
+    #randomBox>span{
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      margin-right: 5px;
+      background: red;
+      color: white;
+      text-align: center;
+      line-height: 70px;
+      font-size: 30px;
+      font-weight: bolder;
+    }
+    #randomBox>span:last-child{
+      background: blue;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="randomBox">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span>5</span>
+    <span>6</span>
+    <span>7</span>
+  </div>
+  <button id="startBtn">开始</button>
+  <button id="stopBtn">停止</button>
+  <script>
+    var startBtn = document.getElementById('startBtn')
+    var stopBtn = document.getElementById('stopBtn')
+    var randomBox = document.getElementById('randomBox').children
+    var result = [1,2,3,4,5,6,7];
+    var num = [];
+    for(var i=1;i<=33;i++){
+      num.push(i)
+    }
+
+    function showNum(){
+      for(var i=0;i<result.length;i++){
+        randomBox[i].innerHTML = result[i];
+      }
+    }
+
+    var timer,index=0;
+    startBtn.onclick = function(e){
+      var arr = num.concat([]);
+      timer = setInterval(function(){
+        if(index<6){
+          result[index] = arr.splice(parseInt(Math.random() * arr.length),1)[0]
+          index++;
+          showNum();
+        }else{
+          result[6] = parseInt(Math.random() * 16);
+          index=0;
+          arr = num.concat([]);
+          showNum();
+        }
+      },10)
+    }
+
+    stopBtn.onclick = function(e){
+      clearInterval(timer);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+         }
+        ul{
+            list-style:none;
+        }
+        ul li{
+            line-height:30px;
+        }
+        .menu-item>ul{
+            display: none;
+        }
+/*        .menu-item:hover>ul{
+            display: block;
+        }*/
+    </style>
+</head>
+<body>
+    <div id="container">
+      <button id="useless-btn">毫无用处的按钮</button>
+      <button id="add-btn">绑定click事件</button>
+      <button id="remove-btn">解除绑定</button>
+    </div>
+  <pre>
+    有如上结构，请实现：
+    1.点击"add-btn"时，给"useless-btn"绑定事件，并且"useless-btn"文字变为“可以点击了”，点击"useless-btn"时弹出“事件触发成功”
+    2.点击"remove-btn"，解除"useless-btn"绑定的事件，并且并且"useless-btn"文字还原
+    3.请使用DOM2级事件绑定，并考虑chrome和ie下的兼容性
+  </pre>
+<script>
+var uselessBtn = document.getElementById('useless-btn');
+var addBtn = document.getElementById('add-btn');
+var removeBtn = document.getElementById('remove-btn');
+function fn(){
+    alert('事件触发成功');
+}
+addBtn.addEventListener('click',function(){
+  uselessBtn.addEventListener('click',fn);
+  uselessBtn.innerHTML = '可以点击了'
+})
+removeBtn.addEventListener('click',function(){
+  uselessBtn.removeEventListener('click',fn);
+  uselessBtn.innerHTML = '毫无用处的按钮'
+})
+
+</script>
+</body>
+</html>

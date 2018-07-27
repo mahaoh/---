@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  ul{
+    list-style:none;
+    display:inline-block;
+    cursor: default;
+  }
+  ul li{
+    display:inline-block;
+    cursor: default;
+    color: gold;
+  }
+  .help-info{
+    display: none;
+    width: 200px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    border: 1px solid skyblue;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  </style>
+</head>
+<body>
+  <pre>
+    要求：
+      1.鼠标移到哪个元素上，哪个元素的内容改为★，并且，浮动一个div.help-info在这颗星下面，分别按照以下规则显示内容：
+          1颗星时:'1分|很不满意|差得太离谱，与卖家描述的严重不符，非常不满',
+          2颗星时:'2分|不满意|部分有破损，与卖家描述的不符，不满意',
+          3颗星时:'3分|一般|质量一般，没有卖家描述的那么好',
+          4颗星时:'4分|满意|质量不错，与卖家描述的基本一致，还是挺满意的',
+          5颗星时:'5分|非常满意|质量非常好，与卖家描述的完全一致，非常满意'
+      2.鼠标点击某颗星时，span.result中显示该星级对应的内容
+  </pre>
+  <div style="padding:20px 100px;position: relative;">
+    <ul id="ul">
+      <li>★</li>
+      <li>☆</li>
+      <li>☆</li>
+      <li>☆</li>
+      <li>☆</li>
+    </ul>
+    <span class="result" id="result">1分|很不满意|差得太离谱，与卖家描述的严重不符，非常不满</span>
+    <div class="help-info" id="info"></div>    
+  </div>
+  <table border="1" cellspacing="0" cellpadding="0" id="table">
+    <tr>
+      <th>姓名</th>
+      <th>年龄</th>
+      <th>性别</th>
+      <th>爱好</th>
+    </tr>
+  </table>
+  <button id='appendRowBtn'>添加一行</button>
+<script>
+  var starts = [
+    '1分|很不满意|差得太离谱，与卖家描述的严重不符，非常不满',
+    '2分|不满意|部分有破损，与卖家描述的不符，不满意',
+    '3分|一般|质量一般，没有卖家描述的那么好',
+    '4分|满意|质量不错，与卖家描述的基本一致，还是挺满意的',
+    '5分|非常满意|质量非常好，与卖家描述的完全一致，非常满意'
+  ]
+  var ul = document.getElementById('ul');
+  var info = document.getElementById('info');
+  var result = document.getElementById('result');
+  var lis = ul.children
+  console.log(ul.childNodes)
+  // debugger;
+  var checked = false;
+  function bind(j){
+    lis[j].addEventListener('mouseenter',function(e){
+      if(checked){
+        return;
+      }
+
+      info.style.display = 'block';
+      info.style.top = '45px';
+      info.style.left = e.target.offsetLeft + e.target.offsetWidth / 2 - 106 + 'px';
+      info.innerHTML = starts[j];
+      for(var k=0;k<lis.length;k++){
+        lis[k].innerHTML = k<=j?'★':'☆'
+      }
+    })
+
+    lis[j].addEventListener('click',function(e){
+      result.innerHTML = starts[j];
+      checked = true;
+      info.style.display = 'block';
+      info.style.top = '45px';
+      info.style.left = e.target.offsetLeft + e.target.offsetWidth / 2 - 106 + 'px';
+      info.innerHTML = starts[j];
+      for(var k=0;k<lis.length;k++){
+        lis[k].innerHTML = k<=j?'★':'☆'
+      }
+    }) 
+  }
+
+  for(var i=0;i<lis.length;i++){
+    bind(i);
+  }
+
+  var table = document.getElementById('table')
+  var appendRowBtn = document.getElementById('appendRowBtn');
+  appendRowBtn.onclick = function(){
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    td.innerHTML = '张三';
+    tr.appendChild(td);
+    td = document.createElement('td');
+    td.innerHTML = '跨三列';
+    td.colSpan = 3;
+    td.align = 'center';
+    tr.appendChild(td);
+    table.appendChild(tr);
+  }
+</script>
+</body>
+</html>

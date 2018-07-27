@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/photo.css">
+</head>
+<body>
+  <div class="photo-box" onselectstart="return false;">
+    <div class="photo-preview-wrapper">
+      <div class="photo-preview" id="photo-preview">
+        <img src="photos/1.jpg"/>
+        <div class="mask" id="mask"></div>
+      </div>
+    </div>
+    <div class="photo-view">
+      <img src="photos/1.jpg" id="photo-view"/>
+    </div>
+    <div class="small-photo-bar-wrapper" id="bar">
+      <div class="arrow" arrow="left">&lt;</div>
+      <div class="small-photo-bar">
+        <ul>
+          <li class="active"><img src="photos/1.jpg" middle-img="photos/1.jpg" large-img="photos/1.jpg"></li>
+          <li><img src="photos/2.jpg" middle-img="photos/2.jpg" large-img="photos/2.jpg"></li>
+          <li><img src="photos/3.jpg" middle-img="photos/3.jpg" large-img="photos/3.jpg"></li>
+          <li><img src="photos/4.jpg" middle-img="photos/4.jpg" large-img="photos/4.jpg"></li>
+          <li><img src="photos/5.jpg" middle-img="photos/5.jpg" large-img="photos/5.jpg"></li>
+          <li><img src="photos/6.jpg" middle-img="photos/6.jpg" large-img="photos/6.jpg"></li>
+          <li><img src="photos/7.jpg" middle-img="photos/7.jpg" large-img="photos/7.jpg"></li>
+          <li><img src="photos/8.jpg" middle-img="photos/8.jpg" large-img="photos/8.jpg"></li>
+          <li><img src="photos/9.jpg" middle-img="photos/9.jpg" large-img="photos/9.jpg"></li>
+          <li><img src="photos/10.jpg" middle-img="photos/10.jpg" large-img="photos/10.jpg"></li>
+        </ul>
+      </div>
+      <div class="arrow" arrow="right">&gt;</div>
+    </div>
+  </div>
+  <script>
+    var preview = document.getElementById('photo-preview')
+    var mask = document.getElementById('mask')
+    var view = document.getElementById('photo-view')
+    var bar = document.getElementById('bar')
+
+    function getPosition(dom){
+      var pos = {
+        left: dom.offsetLeft,
+        top: dom.offsetTop
+      }
+      var tmp = dom.offsetParent;
+      while(tmp){
+        pos.left += tmp.offsetLeft;
+        pos.top += tmp.offsetTop;
+        tmp = tmp.offsetParent;
+      }
+      return pos;
+    }
+
+    var pos = getPosition(preview);
+    const MASK_WIDTH = 100;
+    const MASK_HEIGHT = 80;
+    const PREVIEW_WIDTH = 320;
+    const PREVIEW_HEIGHT = 180;
+    preview.onmousemove = function(e){
+      let left = e.pageX - pos.left - MASK_WIDTH / 2;
+      let top = e.pageY - pos.top - MASK_HEIGHT / 2;
+      left = left<0?0:left;
+      left = left>PREVIEW_WIDTH-MASK_WIDTH?PREVIEW_WIDTH-MASK_WIDTH:left 
+      // left = left<0?0:left>PREVIEW_WIDTH-MASK_WIDTH?PREVIEW_WIDTH-MASK_WIDTH:left;
+      top = top<0?0:top;
+      top = top>PREVIEW_HEIGHT-MASK_HEIGHT?PREVIEW_HEIGHT-MASK_HEIGHT:top 
+
+      mask.style.left = left + 'px';
+      mask.style.top = top + 'px';
+      view.style.left = -(left / 320 * view.width) - 160 + 'px';
+      view.style.top = -(top / 180 * view.height) - 90 + 'px';
+    }
+
+    const BAR_ITEM_WIDTH = 64;
+    var scrollLeft = 0;
+    bar.onclick = function(e){
+      e = e || window.event;
+      var target = e.target || e.srcElement;
+      if(target.tagName == 'DIV'){
+        let arrow = target.getAttribute('arrow');
+        if(arrow == 'left'){
+          if(scrollLeft < 0){
+            scrollLeft += BAR_ITEM_WIDTH
+            bar.getElementsByTagName('ul')[0].style.left = scrollLeft + 'px';
+          }
+        }else if(arrow == 'right'){
+          var ul = bar.getElementsByTagName('ul')[0];
+          if(scrollLeft - ul.parentElement.offsetWidth > - BAR_ITEM_WIDTH * ul.children.length){
+            scrollLeft -= BAR_ITEM_WIDTH
+            ul.style.left = scrollLeft + 'px';
+          }
+        }
+      }else if(target.tagName == 'IMG'){
+        let previewSrc = target.getAttribute('middle-img')
+        let viewSrc = target.getAttribute('large-img')
+        preview.children[0].src = previewSrc;
+        view.src = viewSrc;
+
+        var lis = target.parentElement.parentElement.children;
+        for(var i=0;i<lis.length;i++){
+          lis[i].className = '';
+        }
+        target.parentElement.className = 'active';
+      }
+    }
+  </script>
+</body>
+</html>

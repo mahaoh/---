@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>选择门店</title>
+	<link rel="stylesheet" href="static/lib/reset.css">
+	<link rel="stylesheet" href="static/lib/shipei.css">
+	<link rel="stylesheet" href="static/css/index.css">
+	<style>
+		body,html{
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+<div class="SelectStores">
+		<ul class="SelectStores-ul">
+			<li class="current">瑞思英语总部小区</li>
+			<li>瑞思英总部小区</li>
+			<li>瑞思总部小区</li>
+			
+	  </ul>
+	  <div class="SelectStores-list">
+	  		<ul>
+	  		    <li>瑞思英总部小区1</li>
+				<li>瑞思总部小区</li>
+				<li>瑞思英语部小区</li>
+				<li>瑞思英语总部小区</li>
+				<li>瑞思英语京总部小区</li>
+				<li>瑞思英语部小区</li>
+				<li>瑞思英语部小区</li>
+	  		</ul>
+	  		<ul>
+	  		    <li>瑞思英总部小区2</li>
+				<li>瑞思总部小区</li>
+				<li>瑞思英语部小区</li>
+				<li>瑞思英语总部小区</li>
+				<li>瑞思英语京总部小区</li>
+				<li>瑞思英语部小区</li>
+				<li>瑞思英语部小区</li>
+	  		</ul>
+	  		<ul>
+	  		    <li>瑞思英总部小区3</li>
+				<li>瑞思总部小区</li>
+				<li>瑞思英语部小区</li>
+				<li>瑞思英语总部小区</li>
+				<li>瑞思英语京总部小区</li>
+				<li>瑞思英语部小区</li>
+				<li>瑞思英语部小区</li>
+	  		</ul>
+	  </div>
+</div>
+
+     <script src="static/lib/zepto.min.js"></script>
+	<script src="static/js/index.js"></script>
+	<script>
+		$('.SelectStores-ul').on('click','li',function(){
+			$(this).addClass('current').siblings().removeClass('current');
+			$('.SelectStores-list').children().eq($(this).index()).show().siblings().hide();
+		});
+
+
+		var w=document.documentElement?document.documentElement.clientHeight:document.body.clientHeight;
+		if($('.SelectStores-ul').height()<w){
+			 $('.SelectStores-ul').css('height',(w*2)/100+'rem')
+		}
+	
+	</script>
+</body>
+</html>

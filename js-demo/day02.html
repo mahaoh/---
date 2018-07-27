@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="num1">
+  <select id="operate">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="x">x</option>
+    <option value="/">/</option>
+  </select>
+  <input type="text" id="num2">
+  =
+  <span id="result"></span>
+  <button id="calcBtn">计算</button>
+  <button id="clearBtn">清除</button>
+  <script>
+    var num1 = document.getElementById('num1')
+    var operate = document.getElementById('operate')
+    var num2 = document.getElementById('num2')
+    var result = document.getElementById('result')
+    var calcBtn = document.getElementById('calcBtn')
+    var clearBtn = document.getElementById('clearBtn')
+
+    calcBtn.onclick = function(){
+      var n1 = parseFloat(num1.value),
+        n2 = parseFloat(num2.value),
+        op = operate.value
+      if(op=='+'){
+        result.innerHTML = n1 + n2;
+      }else if(op=='-'){
+        result.innerHTML = n1 - n2;
+      }else if(op=='x'){
+        result.innerHTML = n1 * n2;
+      }else if(op=='/'){
+        result.innerHTML = n1 / n2;
+      }
+    }
+  </script>
+</body>
+</html>

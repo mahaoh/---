@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    * {
+      padding:  0;
+      margin:  0;
+    }
+    html,body{
+      height:  100%;
+      width:  100%;
+    }
+    .ring{
+      position: relative;
+      top:  200px;
+      left:  200px;
+      border:  1px solid red;
+      border-radius: 50%;
+      height:  100px;
+      width:  100px;
+    }
+    .arrow{
+      position: absolute;
+      left: 50px;
+      top: 50px;
+      height: 0;
+      width: 40px;
+      border: 1px solid red;
+      transform-origin: 0 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="ring">
+    <div class="arrow" id="arrow"></div>
+  </div>
+  <script>
+    // var arrow = document.getElementById('arrow')
+    // document.body.onmousemove = function(e){
+    //   var x = e.pageX,y = e.pageY;
+    //   var deg = Math.atan2(y-250,x-250) * 180 / Math.PI
+    //   arrow.style.transform = 'rotate('+deg+'deg)'
+    //   // console.log(deg)
+    // }
+    
+    // function getDateStr(d){
+    //   return d.getFullYear() + '-' +  
+    //     ('0' + (d.getMonth() + 1)).slice(-2) + '-' + 
+    //     ('0' + d.getDate()).slice(-2) + ' ' + 
+    //     ('0' + d.getHours()).slice(-2) + ':' + 
+    //     ('0' + d.getMinutes()).slice(-2) + ':' + 
+    //     ('0' + d.getSeconds()).slice(-2)
+    // }
+    // console.log(getDateStr(new Date));
+  </script>
+</body>
+</html>

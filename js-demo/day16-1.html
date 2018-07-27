@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    ul{
+      list-style: none;
+    }
+    .content-wrapper{
+      position: relative;
+      margin-left: 100px;
+      height: 200px;
+      width: 355px;
+      border: 1px solid red;
+      overflow: hidden;
+    }
+    .content-wrapper>div{
+      position: absolute;
+      height: 100%;
+      top: 0;
+      left: 0;
+      white-space: nowrap;
+      font-size: 0;
+    }
+    .content-wrapper>div>img{
+      width: 355px;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="content-wrapper" id="wrapper">
+    <div id="box">
+      <img src="photos/1.jpg" alt="">
+      <img src="photos/2.jpg" alt="">
+<!--       <img src="photos/3.jpg" alt="">
+      <img src="photos/4.jpg" alt="">
+      <img src="photos/5.jpg" alt="">
+      <img src="photos/6.jpg" alt="">
+      <img src="photos/7.jpg" alt="">
+      <img src="photos/8.jpg" alt="">
+      <img src="photos/9.jpg" alt="">
+      <img src="photos/10.jpg" alt=""> -->
+    </div>
+  </div>
+  <script>
+    var leftNow = 0,imgWidth = 0;
+    var wrapper = document.getElementById('wrapper')
+    var box = document.getElementById('box')
+    var len = box.children.length;
+    var nodes = [];
+    for(let i=0;i<box.children.length;i++){
+      nodes.push(box.children[i].cloneNode(true));      
+    }
+    for(let i=0;i<nodes.length;i++){
+      box.append(nodes[i])
+    }
+
+    var isStop = false;
+    var timer = setInterval(function(){
+      if(isStop){
+        return;
+      }
+      if(!imgWidth){
+        imgWidth = parseInt(getComputedStyle(box.children[0]).width);
+      }
+      box.style.left = leftNow + 'px';
+      leftNow -= 1;
+      if(leftNow <= - len * imgWidth){
+        for(var i=0;i<len;i++){
+          box.append(box.children[0]);
+        }
+        leftNow = 0;
+      }
+    },10);      
+
+    wrapper.onmouseenter = function(){
+      isStop = true;
+    }
+
+    wrapper.onmouseleave = function(){
+      isStop = false;
+    }
+  </script>
+</body>
+</html>

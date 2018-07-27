@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS HuiRenDai.com Document */
+a{text-decoration: none;}
+input,textarea{outline:none;}
+html {font-size:266.67%;-webkit-tap-highlight-color:transparent;height:100%;min-width:320px;overflow-x:hidden;background:#EEECEA;overflow-x:hidden;}
+body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.28em;line-height:1;color:#333;background: #FFF;margin: 0 auto;min-height: 100%;position: relative;width:100%}
+@media screen and (min-width: 360px) {
+    html {font-size:300%;}
+}
+@media screen and (min-width: 375px) {
+    html {font-size:312.5%;}
+}
+@media screen and (min-width: 400px) {
+    html {font-size:333.3%;}
+}
+@media screen and (min-width: 412px) {
+    html {font-size:345%;}
+}
+@media screen and (min-width: 480px) {
+    html {font-size:400%;}
+}
+@media screen and (min-width: 560px) {
+    html {font-size:466%;}
+}
+@media screen and (min-width: 640px) {
+    html {font-size:533%;}
+    body {width: 640px;}
+}

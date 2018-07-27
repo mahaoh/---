@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Object</title>
+</head>
+<body>
+	<script>
+		// var psrse=new Object();
+		// psrse.name="mahao";
+		// psrse.phone=function(){
+		// 	alert(122);
+		// }
+
+		// function displayInfo(ags){
+		// 	var a='';
+		// 	if(ags.phone){
+		// 		a+='name:'+ags.name;
+		// 		ags.phone(); 
+		// 		console.log(typeof ags.phone)
+		// 	}else if(typeof ags.age=='number'){
+		// 		a+='age:'+ags.age;
+		// 		console.log(a)
+		// 	};
+		// 	console.log(ags)
+		// };
+		// // displayInfo(psrse);
+		// displayInfo({
+		// 	name:'mahaoc',
+		// 	age:33,
+		// 	phone:function(){
+		// 	alert(122)
+		// }
+		// });
+
+		// var a ={};
+		// a.name="ss";
+		// console.log(a)
+		// 
+		// 
+		// var b=new CPM();
+	
+		// console.log(b)
+		// b.prototype={
+		// 	v:function(){
+		// 		alert(3)
+		// 	}
+		// };
+		// 	function CPM(){
+		// 	alert(211);
+		// 	var that=this;
+		// 	console.log(that)
+		// 	that.v()
+		// 	// console.log(b.v)
+		// }
+		// b()
+
+
+
+ var dic = {c:4, a:2, d:3, b:1}; // 定义一个字典
+
+    console.log("输出最初的字典元素: "); 
+    for(var key in dic){
+        console.log("key: " + key + " ,value: " + dic[key]);
+    }
+
+    console.log("字典元素按key值排序: ");
+    var res = Object.keys(dic).sort(); 
+    console.log(Object.keys(dic),11)
+    for(var key in res){
+        console.log("key: " + res[key] + " ,value: " + dic[res[key]]);
+    }
+
+    console.log("字典元素按value值排序: ");
+    var res2 = Object.keys(dic).sort(function(a,b){ return dic[a]-dic[b]; });
+    for(var key in res2){
+        console.log("key: " + res2[key] + " ,value: " + dic[res2[key]]);
+    }
+
+
+    // var arr={1:6,2:7,3:8,4:9,5:10}
+    // var a=Object.keys(arr);
+    // console.log(a)
+	</script>
+</body>
+</html>

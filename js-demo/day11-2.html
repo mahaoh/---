@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+         }
+        ul{
+            list-style:none;
+        }
+        ul li{
+            line-height:30px;
+        }
+        .menu-item>ul{
+            display: none;
+        }
+/*        .menu-item:hover>ul{
+            display: block;
+        }*/
+    </style>
+</head>
+<body>
+  <pre>
+    要求：
+      1.在div[id="display"]中显示随机顺序的10个数（0-9）
+      2.绑定事件，实现上述按钮的功能，每次操作完需要更新显示内容
+      3.请使用DOM2级事件绑定，并考虑chrome和ie下的兼容性
+  </pre>
+  <div id="container">
+    <div id="display"></div>
+    <button id="shift">删除第一项</button>
+    <button id="pop">删除最后一项</button>
+    <button id="copy">复制当前数组</button><!--当前数组变成2份-->
+    <button id="remove-3">删除前三项</button>
+    <button id="remove-2to3">删除第二至三项</button>
+    <button id="insert-after2">在第二项后插入两个0-9的随机数</button>
+    <button id="replace-2to3">替换第二和三项</button>
+    <button id="reset">还原</button>
+  </div>
+<script>
+  var arr = [];
+  for(var i=0;i<10;i++){
+    arr.push(i)
+  }
+
+  arr.sort(function(a,b){
+    return Math.random() > 0.5;
+  })
+
+  var arr2 = [].concat(arr);
+
+  var display = document.getElementById('display')
+  function show() {
+    display.innerHTML = arr2.join(',')
+  }
+  show();
+
+  var shift = document.getElementById('shift')
+  shift.addEventListener('click',function(){
+    arr2.shift();
+    show();
+  });
+
+  var pop = document.getElementById('pop')
+  pop.addEventListener('click',function(){
+    arr2.pop();
+    show();
+  });
+
+  var copy = document.getElementById('copy')
+  copy.addEventListener('click',function(){
+    arr2 = arr2.concat(arr2);
+    show();
+  });
+
+  var remove3 = document.getElementById('remove-3')
+  remove3.addEventListener('click',function(){
+    arr2.splice(0,3);
+    show();
+  });
+
+  var remove2to3 = document.getElementById('remove-2to3')
+  remove3.addEventListener('click',function(){
+    arr2.splice(1,2);
+    show();
+  });
+
+  var insertAfter2 = document.getElementById('insert-after2')
+  insertAfter2.addEventListener('click',function(){
+    arr2.splice(2,0,parseInt(Math.random()*10));
+    arr2.splice(2,0,parseInt(Math.random()*10));
+    show();
+  });
+
+  var replace2to3 = document.getElementById('replace-2to3')
+  replace2to3.addEventListener('click',function(){
+    var tmp = arr2[1]
+    arr2[1] = arr2[2]
+    arr2[1] = tmp
+    // a = a + b
+    // b = a - b
+    // a = a - b
+
+    // a = a - b
+    // b = a + b
+    // a = b - a
+    show();
+  });
+  var reset = document.getElementById('reset')
+  reset.addEventListener('click',function(){
+    arr2 = [].concat(arr);
+    show()
+  });
+
+</script>
+</body>
+</html>

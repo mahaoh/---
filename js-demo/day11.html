@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="question">
+    <li>1.今天吃饭没有? <input type="radio" name="eated" value="1">吃了 <input type="radio" name="eated" value="2">没吃</li>
+    <li>2.今天吃的什么? <input type="radio" name="witch" value="1">包子 <input type="radio" name="witch" value="2">煎饼</li>
+    <li>3.今天喝的什么? <input type="radio" name="drink" value="1">豆浆 <input type="radio" name="drink" value="2">豆腐脑</li>
+  </ul>
+  <button id="check">看结果</button>
+  <script>
+    var answer = ['1','2','1'];
+
+    document.getElementById('check').onclick = function(){
+      // var eat = document.getElementById('eat').checked;
+      // var score = 0;
+      // if(eat){
+      //   score++
+      // }
+
+      // alert('得分：'+score+'分\n第1题' + (eat?'正确':'错误'));
+      var allStr = '';
+      var ul = document.getElementById('question');
+      var lis = ul.getElementsByTagName('li');
+      var score = 0;
+      for(var i=0;i<lis.length;i++){
+        var str = '';
+        var radios = lis[i].getElementsByTagName('input');
+        for(var j=0;j<radios.length;j++){
+          if(radios[j].checked){
+            if(radios[j].value==answer[i]){
+              score++;
+              str = '第' + (i+1) + '题正确'
+            }else{
+              str = '第' + (i+1) + '题错误'
+            }
+            break;
+          }
+        }
+        if(str.length==0){
+          str = '第' + (i+1) + '题错误'          
+        }
+        allStr += str + '\n'
+      }
+      alert('得分：'+score+'分\n' + allStr)
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container" style="width:300px;">
+  </div>
+  <script>
+    printStr('添加选项：点击时弹出2次prompt，',100)
+
+    function printStr(str,interval){
+      var container = document.getElementById('container');
+      var i=0
+      // ,timer;
+      // timer = setInterval(function(){
+      //   if(i<str.length){
+      //     container.innerHTML += str[i];
+      //     i++;          
+      //   }else{
+      //     i=0;
+      //     // clearInterval(timer);
+      //   }
+      // },interval || 500)
+      var fn = function(){
+        container.innerHTML += str[i];
+        i++;
+        if(i<str.length-1){
+          setTimeout(fn,interval);        
+        }
+      }
+
+      fn()
+    }
+  </script>
+</body>
+</html>

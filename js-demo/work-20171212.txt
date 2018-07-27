@@ -1,0 +1,49 @@
+作业
+  1.实现穿梭框
+  2.
+  select元素练习：
+
+    <div id="container">
+      <div id="header">操作表单元素 select</div>
+        <form id="form">
+          <table>
+            <tr>
+              <td id="city">
+                <select name="city" id="city-select">
+                </select>
+              </td>
+              <td>
+                <button id="add-option" type="button">添加选项</button><br>
+                <button id="remove-option" type="button">删除指定值项</button><br>
+                <button id="remove-selected-option" type="button">删除选中项</button><br>
+                <button id="modify-option" type="button">修改指定值项的文本</button><br>
+                <button id="remove-all-option" type="button">删除所有项</button><br>
+                <button id="select-last-option" type="button">选中最后一项</button><br>
+                <button id="select-option" type="button">选中指定值项</button><br>
+                <button id="get-option" type="button">获取选中项</button><br>
+                <button id="move-option" type="button">将选中项向上移动</button><br>
+                <button id="reset-option" type="button">重置选择项</button><br>
+              </td>
+            </tr>
+          </table>
+        </form>
+    </div>
+    <pre>
+      添加选项：点击时弹出2次prompt，让用户分别输入选项的值(value)和显示文本(text),如果该value已存在则提示“已存在该选项”，否则添加到最后
+      删除指定值项：点击时弹出prompt，让用户输入要删除指定项的值（value），如果该值不存在则提示“不存在该选项”，否则删除该项
+      删除选中项：点击后删除当前选中的项
+      修改指定值项的文本：点击后弹出2次prompt，分别让用户输入要修改的项的值（value）和要修改成的新的文本，确定后完成修改
+      删除所有项： 点击后清空所有选项
+      选中最后一项：点击后选中最后一项
+      选中指定值项：点击后弹出prompt，让用户输入值，确定后选中该项，如果不存在则提示“不存在该选项”
+      获取选中项：点击后弹出提示，格式是：“当前选中项的值是【xxx】，文本是【xxx】”
+      将选中项向上移动：点击后将当前选中的项移动到他前面那个选项的前面
+      重置选择项：将选项还原为初始状态
+    </pre>
+    </div>
+    <script>
+      var cities = [{value:1,text:'北京'},{value:2,text:'上海'},{value:3,text:'广州'},{value:4,text:'深圳'}]
+      /*
+        请用如上数组来动态生成option
+      */
+    </script>

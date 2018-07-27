@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>申请管理</title>
+	<link rel="stylesheet" href="static/lib/reset.css">
+	<link rel="stylesheet" href="static/lib/shipei.css">
+	<link rel="stylesheet" href="static/lib/swiper/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+	<div class="applyFor-seach">
+		 <form>
+                <div class="seach">
+            <p class="seach-list-left"><span>借款搜索</span><em></em></p>
+            <ul class="seach-ul">
+                <li><a href="javascript:;">借款搜索</a></li>
+                <li><a href="javascript:;">还款搜索</a></li>
+            </ul>
+            <input type="text" class="seach-list-right" maxlength="22" name="name">
+            <button  type="submit" class="seach-btn">搜索</button>
+        </div>
+        </form>
+	</div>
+<div class="swiper-container applayFor-swiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide current">待提交</div>
+        <div class="swiper-slide">商户待确认</div>
+        <div class="swiper-slide">审核中</div>
+        <div class="swiper-slide">退回</div>
+        <div class="swiper-slide">通过</div>
+        <div class="swiper-slide">未通过</div>
+        <div class="swiper-slide">取消</div>
+    </div>
+</div>
+     <div class="content_box">
+      <!--待提交-->
+        <div class="loan">
+            <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span></p>
+                    <p>待提交</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                    <li>借款期限:<span>2个月</span></li>
+                    <li>申请时间:<span>2015-07-12</span></li>
+                </ul>
+            </div>	
+        </div>
+         <!--商户待确认-->
+        <div class="loan">
+            <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span></p>
+                    <p>待确认</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                    <li>借款期限:<span>2个月</span></li>
+                    <li>申请时间:<span>2015-07-12</span></li>
+                </ul>
+                <div class="loan_bottom">
+                    <p>
+                         <button class="back-btn">退回</button>
+                        <button class="affirm-btn">确认</button>
+                    </p>
+                </div>
+            </div> 
+        </div>
+         <!--审核中-->
+        <div class="loan">
+              <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span></p>
+                    <p>审核中</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                    <li>借款期限:<span>2个月</span></li>
+                    <li>申请时间:<span>2015-07-12</span></li>
+                </ul>
+            </div>
+        </div>
+          <!--退回-->
+        <div class="loan loan-cancel">
+              <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span></p>
+                    <p>已退回</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                    <li>借款期限:<span>2个月</span></li>
+                    <li>申请时间:<span>2015-07-12</span></li>
+                    <li>退回原因:<span>为什么退回呢</span></li>
+                </ul>
+            </div>  
+        </div>
+          <!--已通过-->
+        <div class="loan">
+              <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span></p>
+                    <p>已通过</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                    <li>借款期限:<span>2个月</span></li>
+                    <li>申请时间:<span>2015-07-12</span></li>
+                </ul>
+            </div>
+        </div>
+          <!--未通过-->
+        <div class="loan loan-cancel">
+              <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span></p>
+                    <p>已通过</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                    <li>借款期限:<span>2个月</span></li>
+                    <li>申请时间:<span>2015-07-12</span></li>
+                    <li>未通过原因:<span>为什么未通过呢</span></li>
+                </ul>
+            </div>
+        </div>
+              <!--已取消-->
+        <div class="loan loan-cancel">
+              <div class="loan_list">
+                <div class="loan_list_top">
+                    <p>借款人:<span>张明</span></p>
+                    <p>已取消</p>
+                </div>
+                <ul>
+                    <li>手机号:<span>1850008754</span></li>
+                    <li>借款总额:<span>10000元</span></li>
+                    <li>借款期限:<span>2个月</span></li>
+                    <li>申请时间:<span>2015-07-12</span></li>
+                    <li>取消原因:<span>为什么取消呢</span></li>
+                </ul>
+            </div>
+        </div>
+     </div>
+	<script src="static/lib/zepto.min.js"></script>
+	<script src='static/lib/swiper/swiper-3.4.2.min.js'></script>
+	<script src="static/js/index.js"></script>
+	<script>
+			
+	</script>
+</body>
+</html>

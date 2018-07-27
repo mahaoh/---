@@ -1,0 +1,33 @@
+webpack @4.X.X版本
+2018/06/28
+
+
+
+安装webpack
+
+cnpm install webpack webpack-cli
+
+确保你的项目中有 package.json 文件，如果没有可以使用 npm init 来创建
+
+这样 webpack 会出现在 package.json 中，我们再添加一个 npm scripts：
+
+代码示例；"scripts": {
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
+  }
+
+
+
+ 创建一个index.js文件  在./src/index.js  可以写任意代码
+
+ 然后执行  npm run build
+
+你就会发现新增了一个 dist 目录，里边存放的是 webpack 构建好的 main.js 文件。
+
+简单的配置就可以用了
+
+创建webpack.config.js文件
+

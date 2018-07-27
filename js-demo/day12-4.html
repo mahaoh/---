@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container">
+    <form id="form">
+      <div>
+        姓名：
+          <input type="text" id="name" value="张三">
+      </div>
+      <div>
+        性别：
+          <label><input type="radio" name="gender" checked value="1">男<label>
+          <label><input type="radio" name="gender" value="2">女<label>
+      </div>
+      <div>
+        爱好：
+        <label><input type="checkbox" name="enjoy" value="tv">看电视</label>
+        <label><input type="checkbox" name="enjoy" value="game">打游戏</label>
+        <label><input type="checkbox" name="enjoy" value="book" checked>看书</label>
+      </div>
+      <div>
+        <button id="getValue">取值</button>
+        <button type="reset">重置</button>
+        <button type="submit">提交</button>
+      </div>
+      <iframe src="day12-3.html"></iframe>
+    </form>
+    <a href="day12-3.html" target="_blank">打开新窗口</a>
+  </div>
+  <script>
+    function addEvent(ele,evt,fn){
+      if(ele.addEventListener){
+        ele.addEventListener(evt,fn);   
+      }else{
+        ele.attachEvent('on' + evt,fn);
+      }
+    }
+
+    var getValue = document.getElementById('getValue')
+    addEvent(getValue,'click',function(e){
+      var result = [];
+      var name = document.getElementById('name').value;
+      result.push('姓名：' + name);
+
+      var genderObj = document.getElementsByName('gender');
+      var gender;
+      for(var i=0;i<genderObj.length;i++){
+        if(genderObj[i].checked){
+          gender = genderObj[i].value;
+        }
+      }
+      var map = {
+        '1': '男',
+        '2': '女'
+      }
+      result.push('性别：' + map[gender])
+
+      var enjoyObj = document.getElementsByName('enjoy');
+      var enjoy = [];
+      for(var i=0;i<enjoyObj.length;i++){
+        if(enjoyObj[i].checked){
+          enjoy.push(enjoyObj[i].value);
+        }
+      }
+      result.push('爱好：' + enjoy.join(','))
+      alert(result.join('\n'));
+      e.preventDefault();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+         }
+        ul{
+            list-style:none;
+        }
+        ul li{
+            line-height:30px;
+        }
+        .menu-item>ul{
+            display: none;
+        }
+/*        .menu-item:hover>ul{
+            display: block;
+        }*/
+    </style>
+</head>
+<body>
+    <div style="display:none;background:lightblue;position: absolute;height:122px;width:100px;border:1px solid #000" id="menu">
+    <p style="text-align:center;line-height:30px">菜单内容</p>
+    <ul id="menu-wrapper">
+      <li class="menu-item" style="position: relative;">
+        <div style="border-bottom: 1px solid #000;border-top: 1px solid #000;text-align:center">一级菜单</div>
+        <ul style="position: absolute;left:100%;top:0;width:150px;text-align:center;background:black;border: 1px solid #666;border-left: none;color:#fff">
+          <li>二级子菜单</li><hr/>
+          <li style="border-left: 1px solid #666;">二级子菜单</li><hr/>
+          <li style="border-left: 1px solid #666;">二级子菜单</li><hr/>
+        </ul>
+      </li>
+      <li class="menu-item" style="position: relative;">
+        <div style="border-bottom: 1px solid #000;text-align:center">一级菜单</div>
+        <ul style="position: absolute;left:100%;top:0;width:150px;text-align:center;background:yellow;border: 1px solid #666;border-left: none;color:green">
+          <li>二级子菜单</li><hr/>
+          <li style="border-left: 1px solid #000;">二级子菜单</li><hr/>
+          <li style="border-left: 1px solid #000;">二级子菜单</li><hr/>
+        </ul>
+      </li>
+      <li class="menu-item" style="position: relative;">
+        <div style="text-align:center">一级菜单</div>
+        <ul style="position: absolute;left:100%;top:0;width:150px;text-align:center;background:green;border: 1px solid #666;border-left: none;color:red">
+          <li>二级子菜单</li><hr/>
+          <li style="border-left: 1px solid #000;">二级子菜单</li><hr/>
+          <li style="border-left: 1px solid #000;">二级子菜单</li><hr/>
+        </ul>
+      </li>
+    </ul>
+  </div>
+<script>
+menu = document.getElementById('menu');
+var isIE = !window.addEventListener;
+
+if (!isIE) {
+  window.addEventListener('contextmenu', function(e) {
+    menu.style.display = 'block';
+    var clientWidth = document.body.clientWidth,
+      left = e.pageX;
+    if (clientWidth - e.pageX < menu.offsetWidth) {
+      left = clientWidth - menu.offsetWidth
+    }
+    menu.style.left = left + 'px';
+    menu.style.top = e.pageY + 'px';
+    e.preventDefault()
+    e.stopPropagation();
+  })
+} else {
+  window.attachEvent('oncontextmenu', function(e) {
+    menu.style.display = 'block';
+    var clientWidth = document.body.clientWidth,
+      left = e.pageX;
+    if (clientWidth - e.pageX < menu.offsetWidth) {
+      left = clientWidth - menu.offsetWidth
+    }
+    menu.style.left = left + 'px';
+    menu.style.top = e.pageY + 'px';
+    return false;
+  })
+}
+if (!isIE) {
+  window.addEventListener('click', function(e) {
+    menu.style.display = 'none';
+  })
+} else {
+  window.attachEvent('onclick', function(e) {
+    menu.style.display = 'none';
+  })
+}
+
+var menuWrapper = document.getElementById('menu-wrapper');
+var lis = menuWrapper.children;
+for (var i = 0; i < lis.length; i++) {
+  lis[i].addEventListener('mouseenter', function(e) {
+    let target = e.target;
+    let submenu = target.getElementsByTagName('ul')[0];
+    if (submenu) {
+      var clientWidth = document.body.clientWidth
+      if(clientWidth - menu.offsetLeft - menu.offsetWidth<150){
+        submenu.style.left = '-150px';
+      }else{
+        submenu.style.left = '100%';
+      }
+      submenu.style.display = 'block';
+    }
+  });
+  
+  lis[i].addEventListener('mouseleave', function(e) {
+    let target = e.target;
+    let submenu = target.getElementsByTagName('ul')[0];
+    if (submenu) {
+      submenu.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>

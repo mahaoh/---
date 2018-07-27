@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+运算元的个数来分
+  二元、二目
+  + - * / % > < >= <= = += -= && ||
+  一元、一目
+  ! . ++ --
+  三元、三目
+  ?:
+按照功能来分
+  算数运算符  + - * / %
+  比较运算符 > < >= <= == != === !==
+  赋值运算符 = += -= ++ --
+  逻辑运算符 && ||
+  字符串运算符 +
+  逗号运算符 ,
+  成员运算符 . [] var a = {name:'zhangsan'} a.name = a['name']
+  分号运算符 ; for(;;){}
+  小括号运算符 ()  i+++5
+  条件运算符 ?   i>3?xx:xx
+  typeof运算符和instanceof运算符 
+
+  var i=10
+
+op
+
+  if(op=='+'){
+
+  }else if(op=='-'){
+
+  }else if(op=='x'){
+
+  }else{
+
+  }
+
+  switch(op){
+    case '+':
+      //执行加法
+    case '-':
+      //执行减法
+  }
+
+
+  /*
+   A: 90 - 100
+   B: 80 - 89
+   C: 60 - 79
+   D: 0 - 59
+  */
+  function getGrade (n) {
+    // if(n == 'A'){
+    //   console.log('90 - 100')
+    // }else if(n == 'B'){
+    //   console.log('80 - 89')
+    // }else if(n == 'C'){
+    //   console.log('60 - 79')
+    // }else if(n == 'D'){
+    //   console.log('0 - 59')
+    // }
+    switch(n){
+      case 'A':
+      case 'B':
+      case 'C':
+        // console.log('60 - 79');
+        console.log('及格了')
+        break;
+      case 'D':
+        // console.log('0 - 59');
+        console.log('不及格')
+        break;
+      default:
+        console.log('输入错误');
+    }
+  }
+
+
+  for(var i=1,j=1;i<10;i++,j+=2){
+    console.log(i,'i');
+    console.log(j,'j');
+  }
+
+  for(var i=1;i<10;i++){
+    console.log(i,'i');
+  }
+
+  var i=10;
+  while(i<10){
+    console.log(i++,'i');
+  }
+
+  var i=10;
+  do{
+    console.log(i,'i');
+    i++
+  } while(i<10)
+</script>
+</body>
+</html>

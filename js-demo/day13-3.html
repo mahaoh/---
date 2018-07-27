@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container">
+    <table border="1" cellspacing="0" cellpadding="0" id="cart">
+      <tr>
+        <td><input type="checkbox" id="checkall">全选</td>
+        <td>商品名称</td>
+        <td>价格</td>
+        <td>数量</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk" value="1"></td>
+        <td>耐克</td>
+        <td>199.00</td>
+        <td><button>-</button>5<button>+</button></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk" value="1"></td>
+        <td>蓝利群</td>
+        <td>16.00</td>
+        <td><button>-</button>1<button>+</button></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk" value="1"></td>
+        <td>剑南春</td>
+        <td>288.00</td>
+        <td><button>-</button>1<button>+</button></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk" value="1"></td>
+        <td>娃哈哈</td>
+        <td>7.00</td>
+        <td><button>-</button>1<button>+</button></td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          总价：<span id="total">0.00</span>元
+        </td>
+      </tr>
+    </table>
+  </div>
+  <script>
+    var chks = document.getElementsByName('chk');
+    var total = document.getElementById('total');
+    var checkall = document.getElementById('checkall');
+    var cart = document.getElementById('cart');
+
+    function refreshTotal(){
+      var sum = 0;
+      for(var i=0;i<chks.length;i++){
+        if(chks[i].checked){
+          let tr = chks[i].parentElement.parentElement;
+          let price = tr.children[tr.children.length - 2].innerHTML * 1
+          num = tr.children[tr.children.length - 1].children[0].nextSibling.nodeValue
+          sum += price * num;
+        }
+      }
+      total.innerHTML = sum.toFixed(2);
+    }
+
+    for(var i=0;i<chks.length;i++){
+      chks[i].addEventListener('change',function(e){
+        var allChecked = true;
+        for(var j=0;j<chks.length;j++){
+          if(!chks[j].checked){
+            allChecked = false;
+            break;
+          }
+        }
+        checkall.checked = allChecked;
+        refreshTotal();
+      });
+    }
+
+    cart.addEventListener('click',function(e){
+      var el = e.target;
+      if(el.tagName != 'BUTTON'){
+        return;
+      }
+      var isAdd = el.innerHTML == '+';
+      if(isAdd){
+        el.previousSibling.nodeValue = el.previousSibling.nodeValue * 1 + 1;
+      }else{
+        el.nextSibling.nodeValue = el.nextSibling.nodeValue * 1 - 1;
+      }
+      refreshTotal();
+    });
+
+    checkall.addEventListener('change',function(e){
+      for(var i=0;i<chks.length;i++){
+        chks[i].checked = e.target.checked;
+      }
+      refreshTotal();
+    })
+  </script>
+</body>
+</html>

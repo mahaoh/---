@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="select.css">
+</head>
+<body>
+  <div>
+    <div class="search">
+      <div class="search-box">
+        <form>
+          <div class="select" id="select-text">请选择游戏名称</div>
+          <button type="button" id="btn">搜&nbsp;索</button>
+        </form>
+      </div>
+      <ul class="select-list" id="select-list">
+        <li>地下城与勇士</li>
+        <li>魔兽世界（国服）</li>
+        <li>魔兽世界（台服）</li>
+        <li>热血江湖</li>
+        <li>神鬼传奇</li>
+        <li>大话西游II</li>
+        <li>QQ幻想世界</li>
+      </ul>
+    </div>
+  </div>
+  fdsfdsfds
+  <script>
+    function addEvent(ele,evt,fn){
+      if(ele.addEventListener){
+        ele.addEventListener(evt,fn);   
+      }else{
+        ele.attachEvent('on' + evt,fn);
+      }
+    }
+
+    var selectText = document.getElementById('select-text');
+    var selectList = document.getElementById('select-list');
+    addEvent(selectText,'click',function(e){
+      selectList.style.display = selectList.style.display=='block'?'none':'block';
+      e.stopPropagation();
+    });
+
+    // var lis = selectList.children
+    // for(var i=0;i<lis.length;i++){
+    //   addEvent(lis[i],'click',function(e){
+    //     selectText.innerHTML = e.target.innerHTML;
+    //     selectList.style.display = 'none';
+    //   })
+    // }
+    addEvent(selectList,'click',function(e){
+      selectText.innerHTML = e.target.innerHTML;
+      selectList.style.display = 'none';
+    });
+
+    addEvent(window,'click',function(){
+      selectList.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

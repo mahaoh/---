@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <h1>编写函数，传入2个参数a,n，求a+aa+aaa+aaaa+aa...a的值，其中a是一个数字。例如2+22+222+2222+22222(共有n个数相加)</h1>
+  <script>
+    // function fn(a,n){
+    //   let sum = 0,last = 0;
+    //   for(let i=1;i<=n;i++){
+    //     let cur = last * 10 + a;
+    //     sum += cur;
+    //     last = cur;
+    //   }
+    //   return sum;
+    // }
+    // function fn(a,n){
+    //   let sum = 0;
+    //   for(let i=1;i<=n;i++){
+    //     var s = '';
+    //     for(let j=1;j<=i;j++){
+    //       s += a;
+    //     }
+    //     sum += +s;
+    //   }
+    //   return sum;
+    // }
+    function fn(a,n){
+      let sum = 0,cur = '';
+      for(let i=1;i<=n;i++){
+        cur += a
+        sum += +cur
+      }
+      return sum;
+    }
+    document.write('fn(3,5)结果是：' + fn(3,5))
+  </script>
+  <h1>
+    海滩上有一堆桃子，五只猴子来分。第一只猴子把这堆桃子凭据分为五份，多了一个，这只猴子把多的一个扔入海中，拿走了一份。
+  第二只猴子把剩下的桃子又平均分成五份，又多了一个，它同样把多的一个扔入海中，拿走了一份，第三、第四、第五只猴子都是这样做的，
+  问海滩上原来最少有多少个桃子？
+  </h1>
+  <script>
+    //假设最后一次分的时候有n个桃子，我们从6开始迭代
+    //迭代的过程当中，需要进行判断，按照那个公式求上次的桃子，一直求到最开始的时候，如果不是整数，那么我们假设的这个数就不正确
+
+    //假设初始有count个桃子，count我们从5开始算，每次加1
+    //判断规则：这个数除以5余1，并且，剩下的除以5也是余1的，这样算5次，
+    //都满足的话，那么这个数就是正确的
+
+    var flag = true;
+    var count = 5;
+    while(flag){
+      let num = count;
+      let f = true;
+      for(let i=1;i<=5;i++){
+        if(num % 5 != 1){
+          f = false;
+          break;
+        }
+        num = num - (num - 1) / 5 - 1
+      }
+
+      if(f){
+        flag = false;
+      }else{
+        count ++;
+      }
+    }
+    console.log(count)
+  </script>
+  <h1>
+    求0—7所能组成的奇数个数（每个数只能出现一次）
+  </h1>
+  <script>
+    // 0-7
+    // 10234567  76543210
+    // 1.排除掉含有8和9的数
+    // 2.排除掉偶数
+    // 3.排除数字有重复的
+
+    //8位数，如果里面找不到0-7之间的任意一个数，那么他肯定会有重复的数字
+
+    function calc(){
+      var timer = new Date()
+      var count=0;
+      next:
+      for(let i=10234567;i<=76543210;i+=2){
+        var t = i,n,r = {};
+        for(let j=0;j<=7;j++){
+          n = t % 10;
+          t = parseInt(t / 10)
+          if(n==8 || n==9){
+            continue next ;
+          }
+
+          if(r[n]){
+            continue next;
+          }else{
+            r[n] = 1
+          }
+        }
+
+        // result.push(i)
+        count++;
+        document.write(i+"<br>")
+      }
+      console.log(count)
+      console.log(new Date - timer)
+    }
+  </script>
+  <h1>
+      某个公司采用公用电话传递数据，数据是四位的整数，在传递过程中是加密的，加密规则如下：每位数字都加上5,然后用
+  和除以10的余数代替该数字，再将第一位和第四位交换，第二位和第三位交换。
+  编写加密函数和解密函数
+  </h1>
+  <script>
+    function encode(str){
+      var arr = str.split('');
+      for(let i=0;i<arr.length;i++){
+        arr[i] = (+arr[i] + 5) % 10
+      }
+      return arr.reverse().join('');
+    }
+
+    var s1 = encode('1234');
+
+    document.write('加密结果：' + s1 + '<br>');
+
+    function decode(str){
+      var arr = str.split('').reverse();
+      for(let i=0;i<arr.length;i++){
+        let n = +arr[i];
+        arr[i] = n + (n>=5<=9?-5:5)
+      }
+      return arr.join('');
+    }
+
+    document.write('解密结果：' + decode(s1) + '<br>');
+  </script>
+</body>
+</html>

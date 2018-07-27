@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>实名信息</title>
+	<link rel="stylesheet" href="static/lib/reset.css">
+	<link rel="stylesheet" href="static/lib/shipei.css">
+	<link rel="stylesheet" href="static/css/index.css">
+	<style>
+		html,body{
+			background: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="autonym-title">
+		您的商户已变更,请确认后生成新的二维码
+	</div>
+	<ul class="autonym-list">
+		<li>
+			<label>姓名</label>
+			<input type="text" class="RealName-name" readonly value="快*乐">
+		</li>
+		<li>
+			<label>身份证号</label>
+			<input type="text" readonly class="RealName-ID" value="37290********391X"> 
+		</li>
+	</ul>
+	<button type="button" class="RealName-btn" id="RealName-btn">确定</button>
+
+	<script src="static/lib/zepto.min.js"></script>
+	<script src="static/js/index.js"></script>
+	<script>
+		$('.RealName-btn').on('click',function(){
+			location.href="EnterCode.html"
+		})
+	</script>
+</body>
+</html>

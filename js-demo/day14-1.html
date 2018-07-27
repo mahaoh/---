@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="tab.css">
+</head>
+<body>
+  <div class="tab-box">
+    <ul class="tab-header-wrapper" id="tabHeader">
+      <li class="li1 active">图片1</li>
+      <li class="li1">图片2</li>
+      <li class="li1">图片3</li>
+      <li class="li1">图片4</li>
+    </ul>
+    <ul class="tab-content-wrapper" id="tabContent">
+      <li class="active"><img src="img/1.jpg"></li>
+      <li><img src="img/2.jpg"></li>
+      <li><img src="img/3.jpg"></li>
+      <li><img src="img/4.jpg"></li>
+    </ul>
+  </div>
+  <script>
+    var tabHeader = document.getElementById('tabHeader')
+    var tabContent = document.getElementById('tabContent')
+
+    tabHeader.onclick = function(e){
+      e = e || window.event;
+      var target = e.target || e.srcElement;
+      
+      var lis = tabHeader.children;
+      var index = -1;
+      for(var i=0;i<lis.length;i++){
+        if(target == lis[i]){
+          index = i;
+          // lis[i].className += (lis[i].className==''?'':' ') + 'active';
+          lis[i].className = 'active';
+        }else{
+          // lis[i].className = (' ' + lis[i].className + ' ').replace(' active ',' ').trim();
+          lis[i].className = '';
+        }
+      }
+
+      var contents = tabContent.children;
+      for(var i=0;i<contents.length;i++){
+        if(index == i){
+          // contents[i].className += (contents[i].className==''?'':' ') + 'active';
+          contents[i].className = 'active';
+        }else{
+          // contents[i].className = (' ' + contents[i].className + ' ').replace(' active ',' ').trim();
+          contents[i].className = '';
+        }
+      }
+    }
+  </script>
+</body>
+</html>

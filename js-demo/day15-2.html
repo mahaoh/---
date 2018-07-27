@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+<body>
+  <select id="province"><option value="">请选择省</option></select>
+  <select id="city"><option value="">请选择市</option></select>
+  <select id="area"><option value="">请选择区</option></select>
+  <script src="jsonData/provinces.js"></script>
+  <script>
+    var province = document.getElementById('province')
+    var city = document.getElementById('city')
+    var area = document.getElementById('area')
+
+    for(let i=0;i<provinces.length;i++){
+      var opt = new Option(provinces[i].name,provinces[i].ProID);
+      province.options.add(opt);
+    }
+
+    province.onchange = function(e){
+      var proId = province.value;
+      city.innerHTML = '<option value="">请选择市</option>';
+      area.innerHTML = '<option value="">请选择区</option>';
+      for(let i=0;i<cities.length;i++){
+        if(cities[i].ProID == proId){
+          var opt = new Option(cities[i].name,cities[i].CityID);
+          city.options.add(opt);
+        }
+      }      
+    }
+
+    city.onchange = function(e){
+      var cityId = city.value;
+      area.innerHTML = '<option value="">请选择区</option>';
+      for(let i=0;i<areas.length;i++){
+        if(areas[i].CityID == cityId){
+          var opt = new Option(areas[i].DisName,areas[i].Id);
+          area.options.add(opt);
+        }
+      }      
+    }
+  </script>
+</body>
+</html>

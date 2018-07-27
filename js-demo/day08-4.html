@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  </style>
+</head>
+<body>
+  <ul id="cart">
+  </ul>
+  <script>
+    var timer = new Date;
+    var cart = document.getElementById('cart');
+    var temp = '';
+    for(var i=1;i<=500;i++){
+      temp += '<li>'+
+          '商品名称：商品'+i+' <button tp="modify">修改</button><button tp="delete">删除</button>' +
+        '</li>'
+    }
+    cart.innerHTML = temp;
+
+    // var btns = cart.getElementsByTagName('button');
+    // for(var i=0;i<btns.length;i++){
+    //   btns[i].addEventListener('click',function(e){
+    //     // console.log(e.target.parentElement)
+    //     cart.removeChild(e.target.parentElement)
+    //   })
+    // }
+//什么是事件代理/事件委托
+//利用事件冒泡的原理，将子元素的事件委托给祖先元素监听和处理
+
+    // cart.addEventListener('click',function(e){
+    //   var dom = e.target;
+    //   var tp = dom.getAttribute('tp');
+    //   if(tp){
+    //     if(tp=='delete'){
+    //       cart.removeChild(dom.parentElement)
+    //     }else{
+    //       alert('修改')
+    //     }
+    //   }
+    // });
+
+    // cart.attachEvent('onclick',function(e){
+    //   e = e || window.event;
+    //   console.log(event)
+
+    // });
+    cart.onclick= function(e){
+      e = e || window.event;
+      console.log(e.srcElement)
+    }
+    
+    console.log(new Date - timer);
+  </script>
+</body>
+</html>

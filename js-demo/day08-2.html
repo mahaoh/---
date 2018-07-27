@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    * {
+      padding:  0;
+      margin:  0;
+    }
+    html,body{
+      height:  100%;
+      width:  100%;
+    }
+    .ring{
+      position: relative;
+      top:  200px;
+      left:  200px;
+      border:  1px solid red;
+      border-radius: 50%;
+      height:  100px;
+      width:  100px;
+    }
+    .arrow{
+      position: absolute;
+      left: 50px;
+      top: 50px;
+      height: 2px;
+      width: 40px;
+      border: none;
+      background: red;
+      transform-origin: 0 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="ring">
+    <div class="arrow" id="hour" style="width:25px;"></div>
+    <div class="arrow" id="minute" style="width:35px;"></div>
+    <div class="arrow" id="second"></div>
+  </div>
+  <form>
+    <div>
+      验证码：<input type="text" placeholder="请输入验证码"><button id="sendCodeBtn">发送验证码</button>
+    </div>
+  </form>
+  <script>
+    // var arrowHour = document.getElementById('hour')
+    // var arrowMinute = document.getElementById('minute')
+    // var arrowSecond = document.getElementById('second')
+
+    // setInterval(function(){
+    //   var date = new Date
+    //   var hour = date.getHours(),minute = date.getMinutes(),second = date.getSeconds();
+
+    //   hour = hour>12?hour-12:hour;
+    //   var ratio = second / 60;
+    //   arrowSecond.style.transform = 'rotate(' + (360 * ratio - 90) + 'deg)'; 
+    //   arrowMinute.style.transform = 'rotate(' + (360 * minute / 60 - 90 + 360 / 60 * ratio) + 'deg)';
+    //   ratio = minute / 60;
+    //   arrowHour.style.transform = 'rotate(' + (360 * hour / 12 - 90 + 360 / 60 * ratio) + 'deg)';
+    // },1000);
+    var btn = document.getElementById('sendCodeBtn');
+    const TIME = 6;
+
+    var time = TIME;
+    var interval = null;
+    // btn.onclick = function(){
+    //   btn.setAttribute('disabled',true);
+    //   btn.innerHTML = (time--) + '秒后重发';
+    //   interval = setInterval(function(){
+    //     if(time==0){
+    //       time = TIME;
+    //       btn.innerHTML = '发送验证码';
+    //       clearInterval(interval);
+    //     }else{
+    //       btn.innerHTML = time + '秒后重发';          
+    //       time--;
+    //     }
+    //   },1000);
+    // }
+
+    //问题： 求现在距离2018-02-16 00:00:00还有xxx天xx小时xx分xx秒
+    setInterval(function(){
+      var now = new Date
+      var newYear = new Date('2018/02/16')
+      var seconds = parseInt((newYear - now) / 1000)
+      const SECONDS_PER_DAY = 24 * 60 * 60;
+      const SECONDS_PER_HOUR = 60 * 60;
+      const SECONDS_PER_MINUTE = 60;
+      var days = parseInt(seconds / SECONDS_PER_DAY)
+      var hours = parseInt((seconds - days * SECONDS_PER_DAY) / SECONDS_PER_HOUR)
+      var minutes = parseInt((seconds - days * SECONDS_PER_DAY - hours * SECONDS_PER_HOUR) / SECONDS_PER_MINUTE)
+      seconds = seconds - days * SECONDS_PER_DAY - hours * SECONDS_PER_HOUR - minutes * SECONDS_PER_MINUTE
+      console.log('距离过年还有'+days+'天'+hours+'小时'+minutes+'分钟'+seconds+'秒')      
+    },1000)
+  </script>
+</body>
+</html>

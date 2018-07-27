@@ -1,0 +1,57 @@
+作业
+  1.
+  实现一个右键菜单，鼠标在任意区域点击右键均可弹出，并且出现在鼠标附近，带多级子菜单
+  注：用事件委托来处理子菜单弹出和消失,请考虑chrome和ie下的兼容性
+
+  2.数组综合练习：
+    <div id="container">
+      <div id="display"></div>
+      <button class="shift">删除第一项</button>
+      <button class="pop">删除最后一项</button>
+      <button class="copy">复制当前数组</button><!--当前数组变成2份-->
+      <button class="remove-3">删除前三项</button>
+      <button class="remove-2to3">删除第二至三项</button>
+      <button class="insert-after2">在第二项后插入两个0-9的随机数</button>
+      <button class="replace-2to3">替换第二和三项</button>
+      <button class="reset">还原</button>
+    </div>
+    要求：
+      1.在div[id="display"]中显示随机顺序的10个数（0-9）
+      2.绑定事件，实现上述按钮的功能，每次操作完需要更新显示内容
+      3.请使用DOM2级事件绑定，并考虑chrome和ie下的兼容性
+
+  3.
+    <div id="container">
+      <button id="useless-btn">毫无用处的按钮</button>
+      <button id="add-btn">绑定click事件</button>
+      <button id="remove-btn">解除绑定</button>
+    </div>
+    有如上结构，请实现：
+    1.点击"add-btn"时，给"useless-btn"绑定事件，并且"useless-btn"文字变为“可以点击了”，点击"useless-btn"时弹出“事件触发成功”
+    2.点击"remove-btn"，解除"useless-btn"绑定的事件，并且并且"useless-btn"文字还原
+    3.请使用DOM2级事件绑定，并考虑chrome和ie下的兼容性
+
+  4.
+    评分功能
+    显示效果：★★★★☆ 4分|满意|质量不错，与卖家描述的基本一致，还是挺满意的
+    代码：
+    <ul>
+      <li>★</li>
+      <li>☆</li>
+      <li>☆</li>
+      <li>☆</li>
+      <li>☆</li>
+    </ul>
+    <span class="result">1分|很不满意|差得太离谱，与卖家描述的严重不符，非常不满</span>
+    <div class="help-info">
+    </div>
+
+    要求：
+      1.鼠标移到哪个元素上，哪个元素的内容改为★，并且，浮动一个div.help-info在这颗星下面，分别按照以下规则显示内容：
+          1颗星时:'1分|很不满意|差得太离谱，与卖家描述的严重不符，非常不满',
+          2颗星时:'2分|不满意|部分有破损，与卖家描述的不符，不满意',
+          3颗星时:'3分|一般|质量一般，没有卖家描述的那么好',
+          4颗星时:'4分|满意|质量不错，与卖家描述的基本一致，还是挺满意的',
+          5颗星时:'5分|非常满意|质量非常好，与卖家描述的完全一致，非常满意'
+
+      2.鼠标点击某颗星时，span.result中显示该星级对应的内容

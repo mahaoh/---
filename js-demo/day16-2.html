@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="select.css">
+</head>
+<body>
+  <div class="search">
+    <div class="search-box">
+      <div class="select" id="select-text-pro">请选择省</div>
+    </div>
+    <ul class="select-list" style="display: none;" id="select-list-pro"></ul>
+  </div>
+
+  <div class="search">
+    <div class="search-box">
+      <div class="select" id="select-text-city">请选择市</div>
+    </div>
+    <ul class="select-list" style="display: none;" id="select-list-city"></ul>
+  </div>
+
+  <script src="jsonData/provinces.js"></script>
+  <script>
+    var selectListPro = document.getElementById('select-list-pro')
+    var selectTextPro = document.getElementById('select-text-pro')
+    var selectListCity = document.getElementById('select-list-city')
+    var selectTextCity = document.getElementById('select-text-city')
+
+    for(let i=0;i<provinces.length;i++){
+      var li = document.createElement('li');
+      li.innerHTML = provinces[i].name
+      li.setAttribute('value',provinces[i].ProID)
+      selectListPro.appendChild(li);
+    }
+
+    selectTextPro.onclick = function(){
+      selectListPro.style.display = selectListPro.style.display=='none'?'block':'none'
+    }
+
+    selectListPro.onclick = function(e){
+      if(e.target.tagName != 'LI'){
+        return;
+      }
+
+      let text = e.target.innerHTML;
+      let id = e.target.getAttribute('value');
+      if(e.target.className.indexOf('active')==-1){
+        e.target.className += ' active'
+        let nodes = e.target.parentElement.children;
+        for(var i=0;i<nodes.length;i++){
+          if(nodes[i] == e.target){
+            continue;
+          }
+
+          nodes[i].className = (' ' + nodes[i].className + ' ').replace(' active ',' ').trim();
+        }
+      }
+
+      selectTextPro.innerHTML = text;
+      selectTextPro.setAttribute('value',id);
+      selectListPro.style.display = 'none';
+
+      selectTextCity.innerHTML = '请选择市'
+      selectTextCity.setAttribute('value','');
+
+      var str = '';
+      for(let i=0;i<cities.length;i++){
+        if(cities[i].ProID == id){
+          str += '<li value="' + cities[i].CityID + '">' + cities[i].name + '</li>'
+        }
+      }
+      selectListCity.innerHTML = str;
+    }
+
+    selectTextCity.onclick = function(){
+      selectListCity.style.display = selectListCity.style.display=='none'?'block':'none'
+    }
+
+    selectListCity.onclick = function(e){
+      if(e.target.tagName != 'LI'){
+        return;
+      }
+
+      let text = e.target.innerHTML;
+      let id = e.target.getAttribute('value');
+      if(e.target.className.indexOf('active')==-1){
+        e.target.className += ' active'
+        let nodes = e.target.parentElement.children;
+        for(var i=0;i<nodes.length;i++){
+          if(nodes[i] == e.target){
+            continue;
+          }
+
+          nodes[i].className = (' ' + nodes[i].className + ' ').replace(' active ',' ').trim();
+        }
+      }
+
+      selectTextCity.innerHTML = text;
+      selectTextCity.setAttribute('value',id);
+      selectListCity.style.display = 'none';
+    }
+
+  </script>
+</body>
+</html>

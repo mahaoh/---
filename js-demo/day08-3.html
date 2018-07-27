@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-item>ul{
+    display: none;
+  }
+  .menu-item:hover>ul{
+    display: block;
+  }
+  </style>
+</head>
+<body>
+  <button onclick="btnClick()" id="btn">click</button>
+  <button onclick="btnClick()" id="btn2">click</button>
+  <button id="btn3">remove event</button>
+  <input type="text" id="text"/>
+  <div style="height:300px;width:300px;background: red;" id="outerDiv">
+    <div style="height:200px;width:200px;background: green;" id="middleDiv">
+      <p style="height:100px;width:100px;background: blue;" id="innerDiv"></p>
+      <!-- <p style="height:100px;width:100px;background: blue;"></p> -->
+    </div>
+  </div>
+  <div style="display:none;background:lightblue;position: absolute;height:200px;width:100px;" id="menu">
+    菜单内容
+    <ul>
+      <li class="menu-item" style="position: relative;">
+        <div>一级菜单</div>
+        <ul style="position: absolute;left:100%;top:0;">
+          <li>二级子菜单</li>
+          <li>二级子菜单</li>
+          <li>二级子菜单</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <script>
+    function addEvent(ele,evt,fn){
+      if(ele.addEventListener){
+        ele.addEventListener(evt,fn);   
+      }else{
+        ele.attachEvent('on' + evt,fn);
+      }
+    }
+    // function btnClick(){
+    //   alert('aaa')
+    // }
+
+    // var btn = document.getElementById('btn')
+    // var btn2 = document.getElementById('btn2')
+    // var btn3 = document.getElementById('btn3')
+
+    // btn.onclick = function(){
+    //   alert('bbb')
+    // }
+
+    // btn.onclick = function(){
+    //   alert('ccc')
+    //   btn.onclick = null;
+    // }
+
+    // var fn = function(){
+    //   alert(333)
+    // }
+
+    // var isIE = !window.addEventListener
+
+    // if(isIE){
+    //   btn2.attachEvent('onclick',fn)
+    // }else{
+    //   btn2.addEventListener('click',fn);    
+    // }
+
+    // btn3.onclick = function(){
+    //   if(isIE){
+    //     btn2.detachEvent('onclick',fn)
+    //   }else{
+    //     btn2.removeEventListener('click',fn)      
+    //   }
+    //   btn2.onclick = null;
+    // }
+    // btn2.addEventListener('click',function(){
+    //   alert(444)
+    // });
+    var outer = document.getElementById('outerDiv')
+    var middle = document.getElementById('middleDiv')
+    var inner = document.getElementById('innerDiv')
+    addEvent(outer,'click',function(e){
+      alert('最外层的div触发了点击事件')
+    })
+
+    addEvent(middle,'click',function(e){
+      alert('中间层的div触发了点击事件')
+      if(e.stopPropagation){
+        e.stopPropagation()
+      }else{
+        e.cancelBubble = true;
+      }
+    })
+    addEvent(inner,'click',function(e){
+      alert('最里层的div触发了点击事件')
+      // if(e.stopPropagation){
+      //   e.stopPropagation()
+      // }else{
+      //   e.cancelBubble = true;
+      // }
+    })
+
+    var text = document.getElementById('text');
+    addEvent(text,'keydown',function(e){
+      console.log(e.keyCode)
+      if(e.keyCode==38 || e.keyCode ==40){
+        e.preventDefault()
+      }
+    })
+    // window.oncontextmenu = function(){
+    //   alert(1);
+    // }
+
+    var menu = document.getElementById('menu');
+    addEvent(window,'contextmenu',function(e){
+      menu.style.display = 'block';
+      menu.style.left = e.pageX + 'px';
+      menu.style.top = e.pageY + 'px'; 
+      e.preventDefault();
+    })
+
+    // keydown -> keyup -> keypress
+
+    // outer.addEventListener('click',function(event){
+    //   console.log(event.target.tagName)
+    //   if(event.target.tagName == 'P'){
+    //     event.target.style.background = 'orange';      
+    //   }
+    // })
+  </script>
+</body>
+</html>

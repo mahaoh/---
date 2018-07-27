@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var ar = ['10','91','1','5','7','2','6','10','22','79','86']
+    // // var count = 0;
+    // // arr.sort(function(a,b){
+    // //   count++;
+    // //   return a-b;
+    // // })
+    // // console.log(count,arr.length);
+    // function fn(arr){
+    //   var max=null,min=null;
+    //   for(let i=0;i<arr.length;i++){
+    //     if(min != null){
+    //       if(arr[i]<min && arr[i] % 2 == 0){
+    //         min = arr[i]
+    //       }
+    //     }else if(arr[i] % 2 == 0){
+    //       min = arr[i]
+    //     }
+
+    //     if(max != null){
+    //       if(arr[i]>max && arr[i] % 2 != 0){
+    //         max = arr[i]
+    //       }
+    //     }else if(arr[i] % 2 == 0){
+    //       max = arr[i]
+    //     }
+    //   }
+    //   if(!min || !max){
+    //     return null;
+    //   }else{
+    //     return min + max
+    //   }      
+    // }
+
+    // console.log(fn(ar))
+
+    // var arr2 = [88,4,5,10,1,2,3,77,88]
+    // // arr2.sort();
+    // // console.log(arr2[arr2.length-2])
+    // var max=0,second=0;
+    // for(let i=0;i<arr2.length;i++){
+    //   if(arr2[i]>max){
+    //     second = max
+    //     max = arr2[i];
+    //   }else if(arr2[i] < max && arr2[i] > second){
+    //     second = arr2[i];
+    //   }
+    // }
+    // console.log(second,'第二大的值')
+    // var r = [];
+    // for(let i=1;i<=4;i++){
+    //   for(let j=1;j<=4;j++){
+    //     for(let k=1;k<=4;k++){
+    //       var s = i + '' + j + '' + k
+    //       if(i!=j && i!=k && j!=k){
+    //         r.push(s)
+    //       }
+    //     }
+    //   }
+    // }
+    // console.log(r)
+
+    // var count = 1;
+    // for(let i=1;i<=10;i++){
+    //   count = (count + 1) * 2
+    // }
+
+    // function taozi(n){//n代表第n天
+    //   if(n==10){
+    //     return 1
+    //   }else{
+    //     return (taozi(n+1) + 1) * 2
+    //   }
+    // }
+    // console.log(taozi(1))
+
+    // var fenzi = 2,fenmu = 1,sum = 0;
+    // for(let i=0;i<20;i++){
+    //   console.log(fenzi + '/' + fenmu,i)
+    //   sum += fenzi / fenmu; // 2 1
+    //   fenzi = fenzi + fenmu; //3 1
+    //   fenmu = fenzi - fenmu; //3 2
+    // }
+    // console.log(sum);
+
+    // var total = 0;
+    // for(let i=1;i<=20;i++){
+    //   var fact = 1;
+    //   for(let j=1;j<=i;j++){
+    //     fact *= j;
+    //   }
+    //   total += fact;
+    // }
+
+    // function fact(n){
+    //   if(n==1){
+    //     return 1;
+    //   }else{
+    //     return n * fact(n-1);
+    //   }
+    // }
+
+    // var str = '123454321'
+    // var flag = true;
+    // for(let i=0;i<parseInt(str.length / 2);i++){
+    //   if(str[i] != str[str.length-1-i]){
+    //     flag = false;
+    //     break;
+    //   }
+    // }
+    // console.log(flag?'是回文':'不是回文')
+
+    // function checkStr(str){
+    //   for(var i=0;i<)
+    // }
+
+    // function getIndex(n){
+    //   var player = [],num = n;
+    //   for(var i=0;i<n;i++){
+    //     player.push(1);
+    //   }
+
+    //   var i = 1;
+    //   while(num > 1){
+    //     for(var j=0;j<player.length;j++){
+    //       if(player[j]!=1){
+    //         continue;
+    //       }
+    //       if(i==3){
+    //         player[j] = 0;
+    //         num--;
+    //         i=1;
+    //       }else{
+    //         i++;
+    //       }
+    //     }
+    //   }
+
+    //   console.log(player);
+    // }
+
+    // function getIndex(n){
+    //   var player = [];
+    //   for(var i=1;i<=n;i++){
+    //     player.push(i)
+    //   }
+
+    //   var i=0,num=1;
+    //   while(player.length>1){
+    //     console.log('第'+player[i]+'号报了数字' + num)
+    //     if(num==3){
+    //       num = 1;
+    //       player.splice(i,1);
+    //       i--;
+    //     }else{
+    //       num++;
+    //     }
+
+    //     if(i==player.length-1){
+    //       i=0;
+    //     }else{
+    //       i++;
+    //     }
+    //   }
+    //   console.log(player)
+    // }
+    // getIndex(3);
+
+
+    // var arr = [1,2,3,3,4,5,3,7,8,3]
+    // for(var i=0;i<arr.length;i++){
+    //   if(arr[i]==3){
+    //     arr.splice(i,1)
+    //     i--;
+    //   }
+    // }
+    // console.log(arr)
+    // 实参：函数调用时实际传入的参数
+    // 形参：函数定义时，形式上的参数，用于指代实参
+
+    // function fn(){
+    //   console.log(111);
+    // }
+
+    // fn();
+
+    // console.log(a);
+    // var a = 5;
+    // console.log(a);
+
+    // var a;
+    // console.log(a);
+    // a = 5;
+    // console.log(a);
+
+    // var a;
+    // function a(){
+    //   console.log(111)
+    // } 
+    // a()
+
+    // var a
+    // function a(){
+    //   console.log(111)
+    // }
+    // a = 5
+
+    // a()
+
+    // function a(){
+    //   return 
+    // } 
+    // // var a;
+    // console.log(a())
+
+    //其他语言的函数重载
+    // function b(a){
+    //   ...
+    // }
+    // function b(a,b){
+    //   ...
+    // }
+
+    // b(1,2)
+
+    //js里面的函数重载
+    // function b(){
+    //   console.log(arguments[0],arguments[1]);
+    // }
+    // b(1,4);
+    function fn(){
+      console.log(arguments instanceof Array)
+      let sum = 0;
+      for(var i = 0;i<arguments.length;i++){
+        sum += arguments[i]
+      }
+      return sum;
+    }
+
+    console.log(fn(1,2,3)) //= 6
+    console.log(fn(1,2,3,4)) // = 10
+  </script>
+</body>
+</html>

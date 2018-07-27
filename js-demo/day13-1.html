@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body style="position:relative;padding:0;height:3000px">
+  <div id="container">
+    <!-- <img src="fdafdsa.jpg" id="img"/> -->
+    <select multiple id="select1">
+      <option value="1">北京</option>
+      <option value="2">上海</option>
+      <option value="3">天津</option>
+      <option value="4">重庆</option>
+    </select>
+    <span>
+      <button id="toRight">-&gt;</button>
+      <button id="toLeft">&lt;-</button>
+    </span>
+    <select multiple id="select2">
+    </select>
+  </div>
+  <div>
+    <button id="openWinBtn">打开百度</button>
+    <button id="toggleWinBtn">切换到百度窗口</button>
+    <button id="closeWinBtn">关闭百度</button>
+    <button id="closeSelfBtn">关闭自己</button>
+  </div>
+  <div id="backToTop" style="position: absolute;top:0;right:0;">回到顶部</div>
+  <script>
+    // var img = document.getElementById('img')
+    // img.onerror = function (e) {
+    //   e.target.src= 'default.png'
+    // }
+
+    // img.onload = function(e){
+    //   console.log('图片加载成功。。。')
+    // }
+
+    // var img = new Image;
+    // img.src = 'default1.png';
+    // img.onerror = function(){
+    //   img.src="default.png"
+    // }
+    // document.getElementById('container').appendChild(img);
+    var select2 = document.getElementById('select2')
+    var select1 = document.getElementById('select1')
+    var toRightBtn = document.getElementById('toRight')
+    var toLeftBtn = document.getElementById('toLeft')
+    toRightBtn.addEventListener('click',function(){
+      // var opts = select1.options;
+      // for(var i=0;i<opts.length;i++){
+      //   if(opts[i].selected){
+      //     select2.options.add(opts[i--]);
+      //   }
+      // }
+
+      var opts = select1.children;
+      for(var i=0;i<opts.length;i++){
+        if(opts[i].selected){
+          select2.appendChild(opts[i--]);
+        }
+      }
+    });
+
+    // select1.focus();
+    // var option = document.createElement('option')
+    // option.value = '石家庄';
+    // option.innerHTML = '石家庄'
+    // select2.appendChild(option)
+    // var option = new Option('5','太原',true,true)
+    // select2.options.add(option)
+    var openWinBtn = document.getElementById('openWinBtn')
+    var closeWinBtn = document.getElementById('closeWinBtn')
+    var closeSelfBtn = document.getElementById('closeSelfBtn')
+    var toggleWinBtn = document.getElementById('toggleWinBtn')
+    var backToTop = document.getElementById('backToTop')
+    var win;
+    openWinBtn.onclick = function(){
+      win = window.open('http://baidu.com','','','');
+    }
+    closeWinBtn.onclick = function(){
+      win.close();
+    }
+    closeSelfBtn.onclick = function(){
+      // window.open('','_self');
+      // window.opener = null;
+      window.close();
+    }
+    toggleWinBtn.onclick = function(){
+      // window.open('','_self');
+      // window.opener = null;
+      win.focus();
+    }
+
+    console.log(window.parent === window.top)
+
+    var winHeight = window.innerHeight;
+    backToTop.style.top = window.scrollY + winHeight - backToTop.offsetHeight - 16 + 'px'
+    window.onscroll = function(e){
+      backToTop.style.top = window.scrollY + winHeight - backToTop.offsetHeight - 16 + 'px';
+    }
+
+    backToTop.onclick = function(){
+      window.scrollTo({top: 0})
+    }
+  </script>
+</body>
+</html>

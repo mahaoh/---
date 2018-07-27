@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container">
+    <div id="form-header">
+      <input type="checkbox" id="check-all"><label for="check-all">全选</label>
+      <a href="javascript:void(0);" id="reverse">反选</a>
+    </div>
+    <form id="form">
+      <label><input type="checkbox">选项（一）</label>
+      <label><input type="checkbox">选项（二）</label>
+      <label><input type="checkbox">选项（三）</label>
+      <label><input type="checkbox">选项（四）</label>
+      <label><input type="checkbox">选项（五）</label>
+      <label><input type="checkbox">选项（六）</label>
+      <label><input type="checkbox">选项（七）</label>
+      <label><input type="checkbox">选项（八）</label>
+      <label><input type="checkbox">选项（九）</label>
+      <label><input type="checkbox">选项（十）</label>
+    </form>
+  </div>
+  <pre>
+  1、  实现全选、反选功能；
+  2、  根据选中个数更新全选框状态。比如当选择满1-10时，全选自动勾上，没全部选中时，全选自动取消全选状态
+  </pre>
+  <script>
+    function addEvent(ele,evt,fn){
+      if(ele.addEventListener){
+        ele.addEventListener(evt,fn);   
+      }else{
+        ele.attachEvent('on' + evt,fn);
+      }
+    }
+
+    var checkAll = document.getElementById('check-all');
+    var checkbox = document.getElementById('form').getElementsByTagName('input');
+    addEvent(checkAll,'change',function(e){
+      for(var i=0;i<checkbox.length;i++){
+        checkbox[i].checked = e.target.checked
+      }
+    })
+
+    var reverse = document.getElementById('reverse');
+    addEvent(reverse,'click',function(e){
+      for(var i=0;i<checkbox.length;i++){
+        checkbox[i].checked = !checkbox[i].checked
+      }
+    });
+
+    // for(var i=0;i<checkbox.length;i++){
+    //   addEvent(checkbox[i],'change',function(e){
+    //     var isAllChcked = true;
+    //     for(var j=0;j<checkbox.length;j++){
+    //       if(!checkbox[j].checked){
+    //         isAllChcked = false;
+    //         break;
+    //       }
+    //     }
+    //     // if(isAllChcked){
+    //     //   checkAll.checked = true;
+    //     // }else{
+    //     //   checkAll.checked = false;
+    //     // }
+    //     checkAll.checked = isAllChcked
+    //   })
+    // }
+
+    addEvent(document.getElementById('form'),'change',function(e){
+      var isAllChcked = true;
+      for(var j=0;j<checkbox.length;j++){
+        if(!checkbox[j].checked){
+          isAllChcked = false;
+          break;
+        }
+      }
+      checkAll.checked = isAllChcked
+    })
+
+  </script>
+</body>
+</html>
