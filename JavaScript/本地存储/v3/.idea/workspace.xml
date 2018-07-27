@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5ac18a78-f17e-4f91-b9de-e7dd3dbebba4" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/alert/login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#56#81#0" expanded="true" />
+                <marker date="1512387870129" expanded="true" signature="638:1941" ph="..." />
+                <marker date="1512387870129" expanded="true" signature="671:1334" ph="..." />
+                <marker date="1512387870129" expanded="true" signature="995:1311" ph="..." />
+                <marker date="1512387870129" expanded="true" signature="1108:1284" ph="..." />
+                <marker date="1512387870129" expanded="true" signature="1241:1247" ph="&amp;nbsp;" />
+                <marker date="1512387870129" expanded="true" signature="1376:1710" ph="..." />
+                <marker date="1512387870129" expanded="true" signature="1423:1627" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user.login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding>
+                <element signature="e#59#98#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manage_not.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/page/alert/manage_not.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="369">
+              <caret line="96" column="25" lean-forward="true" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.xinw.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.xinw.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="642">
+              <caret line="194" column="15" lean-forward="false" selection-start-line="194" selection-start-column="15" selection-end-line="194" selection-end-column="15" />
+              <folding>
+                <element signature="e#61#97#0" expanded="true" />
+                <marker date="1512387973656" expanded="true" signature="442:857" ph="..." />
+                <marker date="1512387973656" expanded="true" signature="4624:4670" ph="..." />
+                <marker date="1512387973656" expanded="true" signature="5116:5162" ph="..." />
+                <marker date="1512387973656" expanded="true" signature="6008:6073" ph="..." />
+                <marker date="1512387973656" expanded="true" signature="6757:7448" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>xinwAlert</find>
+      <find>/depository/status</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/page</dir>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/snatch.invest.js" />
+        <option value="$PROJECT_DIR$/profit.invest.js" />
+        <option value="$PROJECT_DIR$/page/alert/calc.js" />
+        <option value="$PROJECT_DIR$/page/RightTop/RightTop.js" />
+        <option value="$PROJECT_DIR$/page/alert/login.js" />
+        <option value="$PROJECT_DIR$/main.xinw.js" />
+        <option value="$PROJECT_DIR$/user.login.js" />
+        <option value="$PROJECT_DIR$/page/alert/manage_not.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="803" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="alert" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="drawCurtain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="eptitle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="ItemAnimtion" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="lottery" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="mobilead" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="other" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="overdueBill" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="radio" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="RightTop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="SendStock" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="snakch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="snakch" type="462c0819:PsiDirectoryNode" />
+              <item name="alertYard" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="timeCountdown" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="timeCountdowns" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="TimeRetory" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="transforms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="v3" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="VipRegister" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5ac18a78-f17e-4f91-b9de-e7dd3dbebba4" name="Default" comment="" />
+      <created>1512387212094</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1512387212094</updated>
+      <workItem from="1512387213422" duration="777000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="777000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="803" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/main.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="0" column="20871" lean-forward="false" selection-start-line="0" selection-start-column="20871" selection-end-line="0" selection-end-column="20871" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snatch.invest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="6" column="38" lean-forward="true" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+          <folding>
+            <marker date="1512387870143" expanded="true" signature="1231:1240" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="1282:1291" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="3092:4099" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="4135:4158" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="4159:5310" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="4159:5370" ph="..." />
+            <marker date="1512387870143" expanded="false" signature="4197:4215" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="4755:4761" ph="&amp;nbsp;" />
+            <marker date="1512387870143" expanded="true" signature="4917:5310" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="4993:5261" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="5894:5900" ph="&amp;nbsp;" />
+            <marker date="1512387870143" expanded="true" signature="6413:6426" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="7476:7486" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="9050:9084" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="9426:9606" ph="..." />
+            <marker date="1512387870143" expanded="false" signature="9551:9567" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="9892:10114" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="10165:10379" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="13515:14085" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="15629:15643" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="16245:16707" ph="..." />
+            <marker date="1512387870143" expanded="true" signature="16912:17620" ph="..." />
+            <marker date="1512387870143" expanded="false" signature="17455:17468" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/invest.tender.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-317">
+          <caret line="92" column="8" lean-forward="false" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="8" />
+          <folding>
+            <marker date="1512387124586" expanded="true" signature="4566:5463" ph="..." />
+            <marker date="1512387124586" expanded="true" signature="5512:6006" ph="..." />
+            <marker date="1512387124586" expanded="false" signature="5555:5565" ph="..." />
+            <marker date="1512387124586" expanded="true" signature="6056:6742" ph="..." />
+            <marker date="1512387124586" expanded="true" signature="6330:6600" ph="..." />
+            <marker date="1512387124586" expanded="false" signature="6642:6699" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/invest.single.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="129" column="13" lean-forward="false" selection-start-line="129" selection-start-column="4" selection-end-line="129" selection-end-column="13" />
+          <folding>
+            <element signature="e#30#69#0" expanded="true" />
+            <marker date="1512387124585" expanded="true" signature="3722:3735" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profit.invest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-839">
+          <caret line="590" column="0" lean-forward="false" selection-start-line="590" selection-start-column="0" selection-end-line="590" selection-end-column="0" />
+          <folding>
+            <element signature="e#56#95#0" expanded="true" />
+            <marker date="1512387870135" expanded="true" signature="5719:5733" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="8580:10032" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="8640:9802" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="8715:9755" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="8771:9631" ph="..." />
+            <marker date="1512387870135" expanded="false" signature="8972:9002" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="11491:12937" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="11551:12697" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="11627:12649" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="11684:12505" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="12506:12512" ph="&amp;nbsp;" />
+            <marker date="1512387870135" expanded="true" signature="20567:20627" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="22163:22191" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="22562:24301" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="22619:23556" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="22947:23517" ph="..." />
+            <marker date="1512387870135" expanded="false" signature="23000:23010" ph="..." />
+            <marker date="1512387870135" expanded="false" signature="23417:23427" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="23613:24300" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="23870:24143" ph="..." />
+            <marker date="1512387870135" expanded="false" signature="24193:24250" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="24301:24335" ph="..." />
+            <marker date="1512387870135" expanded="true" signature="24301:24360" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/alert/calc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="27" column="9" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#87#112#0" expanded="true" />
+            <marker date="1512387870139" expanded="true" signature="1311:1530" ph="..." />
+            <marker date="1512387870139" expanded="true" signature="1311:1974" ph="..." />
+            <marker date="1512387870139" expanded="true" signature="1356:1530" ph="..." />
+            <marker date="1512387870139" expanded="false" signature="1471:1484" ph="..." />
+            <marker date="1512387870139" expanded="true" signature="1530:1556" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/alert/calc.js.mine">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/RightTop/RightTop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1512387870124" expanded="true" signature="326:1670" ph="..." />
+            <marker date="1512387870124" expanded="true" signature="326:1935" ph="..." />
+            <marker date="1512387870124" expanded="true" signature="607:1670" ph="..." />
+            <marker date="1512387870124" expanded="true" signature="636:739" ph="..." />
+            <marker date="1512387870124" expanded="true" signature="773:1670" ph="..." />
+            <marker date="1512387870124" expanded="true" signature="794:978" ph="..." />
+            <marker date="1512387870124" expanded="true" signature="999:1181" ph="..." />
+            <marker date="1512387870124" expanded="true" signature="1202:1385" ph="..." />
+            <marker date="1512387870124" expanded="true" signature="1406:1669" ph="..." />
+            <marker date="1512387870124" expanded="true" signature="1461:1647" ph="..." />
+            <marker date="1512387870124" expanded="true" signature="1670:1688" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/alert/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#56#81#0" expanded="true" />
+            <marker date="1512387870129" expanded="true" signature="638:1941" ph="..." />
+            <marker date="1512387870129" expanded="true" signature="671:1334" ph="..." />
+            <marker date="1512387870129" expanded="true" signature="995:1311" ph="..." />
+            <marker date="1512387870129" expanded="true" signature="1108:1284" ph="..." />
+            <marker date="1512387870129" expanded="true" signature="1241:1247" ph="&amp;nbsp;" />
+            <marker date="1512387870129" expanded="true" signature="1376:1710" ph="..." />
+            <marker date="1512387870129" expanded="true" signature="1423:1627" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.xinw.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="642">
+          <caret line="194" column="15" lean-forward="false" selection-start-line="194" selection-start-column="15" selection-end-line="194" selection-end-column="15" />
+          <folding>
+            <element signature="e#61#97#0" expanded="true" />
+            <marker date="1512387973656" expanded="true" signature="442:857" ph="..." />
+            <marker date="1512387973656" expanded="true" signature="4624:4670" ph="..." />
+            <marker date="1512387973656" expanded="true" signature="5116:5162" ph="..." />
+            <marker date="1512387973656" expanded="true" signature="6008:6073" ph="..." />
+            <marker date="1512387973656" expanded="true" signature="6757:7448" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user.login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="e#59#98#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/alert/manage_not.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="96" column="25" lean-forward="true" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

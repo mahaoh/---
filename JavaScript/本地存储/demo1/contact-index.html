@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>通讯录</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">通讯录</a>
+            </div>
+            <div class="collapse navbar-collapse" id="collapse-1">
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="请输入要搜索的内容">
+                    </div>
+                    <button type="button" class="btn btn-default">搜索</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form class="form-contact">
+            <div class="form-group">
+                <label for="username">姓名</label>
+                <input type="text" class="form-control" id="username" placeholder="请输入姓名" value="cuiab">
+            </div>
+            <div class="form-group">
+                <label for="phone">电话</label>
+                <input type="tel" class="form-control" id="phone" placeholder="请输入电话" value="18600143097">
+            </div>
+            <div class="form-group">
+                <label for="email">邮箱</label>
+                <input type="email" class="form-control" id="email" placeholder="请输入电话" value="cab0720@163.com">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default save">保存</button>
+            </div>
+        </form>
+
+        <div class="table-responsive">
+            <table class="table table-contact table-hover table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th data-toggle="modal" data-target="#myModal">姓名</th>
+                        <th>电话</th>
+                        <th>邮箱</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">修改</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="modal-contact">
+                        <div class="form-group">
+                            <label for="modal-username">姓名</label>
+                            <input type="text" class="form-control" id="modal-username" placeholder="请输入姓名">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-phone">电话</label>
+                            <input type="number" class="form-control" id="modal-phone" placeholder="请输入电话">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email">邮箱</label>
+                            <input type="email" class="form-control" id="modal-email" placeholder="请输入电话">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary save-edit">保存修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+    /*
+    window.onload 和 jquery的ready方法 有什么区别？
+    jQuery中有哪几种绑定事件的方式？
+    bind, live, delegate, on
+    unbind, die, undelegate, off
+    */
+    jQuery(function ($) {
+
+        $(".save").on("click", function (e) {
+            e.preventDefault();
+
+            var inputs = $(".form-contact .form-control");
+            var username = inputs.eq(0).val();
+            var phone = inputs.eq(1).val();
+            var email = inputs.eq(2).val();
+
+            if( !/^[a-zA-Z\u4e00-\u9fa5_]+$/.test(username) ) return alert("姓名可以为中文字母下滑线，不能数字开头");
+            if( !/^1\d{10}$/.test(phone) ) return alert("请输入正确的手机号");
+            if( !/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email) ) return alert("请输入正确的邮箱格式");
+
+            var str = "<tr>" +
+                "<td>"+ username +"</td>" +
+                "<td>"+ phone +"</td>" +
+                "<td>"+ email +"</td>" +
+                "<td>" +
+                    "<button class='btn btn-danger btn-sm delete'>删除</button>" +
+                    "<button class='btn btn-danger btn-sm edit'>修改</button>" +
+                "</td>" +
+            "</tr>";
+
+            $(".table-contact tbody").append( str );
+
+        });
+
+        $(".save-edit").on("click", function () {
+            var inputs = $(".modal-contact .form-control");
+            var username = inputs.eq(0).val();
+            var phone = inputs.eq(1).val();
+            var email = inputs.eq(2).val();
+
+            if( !/^[a-zA-Z\u4e00-\u9fa5_]+$/.test(username) ) return alert("姓名可以为中文字母下滑线，不能数字开头");
+            if( !/^1\d{10}$/.test(phone) ) return alert("请输入正确的手机号");
+            if( !/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email) ) return alert("请输入正确的邮箱格式");
+
+            var trIndex = $(this).data("trIndex");
+            var tds = $(".table-contact tbody tr").eq(trIndex).children();
+            tds.eq(0).text( username );
+            tds.eq(1).text( phone );
+            tds.eq(2).text( email );
+
+            $("#myModal").modal("hide");
+        });
+
+        $(".table-contact").on("click", ".delete", function () {
+            $(this).closest("tr").remove();
+        }).on("click", ".edit", function () {
+            var trIndex = $(this).closest("tr").index();
+            $(".save-edit").data("trIndex", trIndex);
+            var tds = $(this).parent().siblings();
+            $('#myModal').data("form-data", {
+                username: tds.eq(0).text(),
+                phone: tds.eq(1).text(),
+                email: tds.eq(2).text()
+            }).modal("show");
+        });
+
+        $("#myModal").on("show.bs.modal", function (event) {
+            var data = $(this).data("form-data");
+            var inputs = $(this).find(".form-control");
+            inputs.eq(0).val( data.username );
+            inputs.eq(1).val( data.phone );
+            inputs.eq(2).val( data.email );
+        });
+
+    })
+    </script>
+</body>
+</html>

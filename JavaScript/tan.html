@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<style>
+		.alertBox{
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.7);
+			position: fixed;
+			left: 0;
+			top: 0;
+		}
+		.alert{
+			width: 566px;
+			height: 366px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			background: #fff;
+			margin-top: -183px;
+			margin-left: -283px;
+		}
+		.remo{
+			width: 58px;
+			height: 58px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: url('./img/remo.png')no-repeat center center;
+			cursor: pointer;
+		}
+		.alert img{
+			display: block;
+			margin: 0 auto;
+			margin-bottom: 14px;
+		}
+		.alert h6{
+			text-align: center;
+			margin-top: 54px;
+			font-size: 16px;
+			color: #333;
+			margin-bottom: 24px;
+		}
+		.btn-alert{
+			display: block;
+			margin: 0 auto;
+			width: 128px;
+			height: 36px;
+			border-radius: 4px;
+			border: 1px solid #f56b0f;
+			color: #f56b0f;
+			background: #fff;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<div class="alertBox">
+		<div class="alert">
+		 	<em class="remo"></em>
+			<h6>即日起,教育分期用户迁移会选爱学微信服务号,请关注</h6>
+			<img src="img/code.png" alt="" width="181" height="181">
+			<button type="button" class="btn-alert">我知道了</button>
+		</div>
+	</div>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/area.js"></script>
+	<script>
+		$(function(){
+			$('.alertBox').on('click','.remo',function(){
+				$(this).parent().parent().remove();
+			});
+			$('.alertBox').on('click','.btn-alert',function(){
+				$(this).parent().parent().remove();
+			});
+			a();
+		})
+	</script>
+</body>
+</html>

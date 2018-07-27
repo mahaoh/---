@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>通讯录</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">通讯录</a>
+            </div>
+            <div class="collapse navbar-collapse" id="collapse-1">
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control form-search" placeholder="请输入要搜索的内容">
+                    </div>
+                    <button type="button" class="btn btn-default btn-search">搜索</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form class="form-contact">
+            <div class="form-group">
+                <label for="username">姓名</label>
+                <input type="text" class="form-control" id="username" placeholder="请输入姓名" value="cuiab">
+            </div>
+            <div class="form-group">
+                <label for="phone">电话</label>
+                <input type="tel" class="form-control" id="phone" placeholder="请输入电话" value="18600143097">
+            </div>
+            <div class="form-group">
+                <label for="email">邮箱</label>
+                <input type="email" class="form-control" id="email" placeholder="请输入电话" value="cab0720@163.com">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default save">保存</button>
+            </div>
+        </form>
+
+        <div class="table-responsive">
+            <table class="table table-contact table-hover table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th data-toggle="modal" data-target="#myModal">姓名</th>
+                        <th>电话</th>
+                        <th>邮箱</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">修改</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="modal-contact">
+                        <div class="form-group">
+                            <label for="modal-username">姓名</label>
+                            <input type="text" class="form-control" id="modal-username" placeholder="请输入姓名">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-phone">电话</label>
+                            <input type="number" class="form-control" id="modal-phone" placeholder="请输入电话">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email">邮箱</label>
+                            <input type="email" class="form-control" id="modal-email" placeholder="请输入电话">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary save-edit">保存修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+    <script>
+    //什么是ajax？
+    //什么是同源策略？
+    //什么是跨域？
+    //解决方案有什么？
+    //原理是什么？
+
+    jQuery(function ($) {
+
+        //查询数据库里所有数据
+        function getAllData(sc) {
+            $.ajax({
+                type: "get",
+                url: "http://172.16.1.28:8080/contact/select.php",
+                data: {search: sc},
+                dataType: "jsonp",
+                success: function (data) {
+                    console.log(data);
+                    if(data.code == 1) {
+                        var str = "";
+                        $(data.list).each(function (i, v) {
+                            str += "<tr data-id=" + v.id + ">" +
+                                "<td>" + v.name + "</td>" +
+                                "<td>" + v.phone + "</td>" +
+                                "<td>" + v.email + "</td>" +
+                                "<td>" +
+                                    "<button class='btn btn-danger btn-sm delete'>删除</button>" +
+                                    "<button class='btn btn-danger btn-sm edit'>修改</button>" +
+                                "</td>" +
+                            "</tr>";
+                        });
+                        $(".table-contact tbody").html(str);
+                    }else{
+                        alert(data.msg);
+                    }
+                }
+            });
+        }
+
+        getAllData();
+
+        $(".btn-search").on("click", function () {
+            getAllData( $(".form-search").val() );
+        });
+
+        $(".save").on("click", function (e) {
+            e.preventDefault();
+
+            var inputs = $(".form-contact .form-control");
+            var username = inputs.eq(0).val();
+            var phone = inputs.eq(1).val();
+            var email = inputs.eq(2).val();
+
+            if( !/^[\u4e00-\u9fa5]{2,}$/.test(username) ) return alert("请输入真实姓名");
+            if( !/^1\d{10}$/.test(phone) ) return alert("请输入正确的手机号");
+            if( !/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email) ) return alert("请输入正确的邮箱格式");
+
+            $.ajax({
+                url: "http://172.16.1.28:8080/contact/add.php",
+                data: {
+                    name: username,
+                    phone: phone,
+                    email: email
+                },
+                dataType: "jsonp",
+                success: function (data) {
+                    if(data.code == 1){
+                        alert(data.msg);
+                        getAllData();
+                    }else{
+                        alert(data.msg);
+                    }
+                }
+            })
+        });
+
+        $(".save-edit").on("click", function () {
+            var inputs = $(".modal-contact .form-control");
+            var username = inputs.eq(0).val();
+            var phone = inputs.eq(1).val();
+            var email = inputs.eq(2).val();
+
+            if( !/^[\u4e00-\u9fa5]{2,}$/.test(username) ) return alert("请输入真实姓名");
+            if( !/^1\d{10}$/.test(phone) ) return alert("请输入正确的手机号");
+            if( !/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email) ) return alert("请输入正确的邮箱格式");
+
+            var trIndex = $(this).data("trIndex");
+            var tr = $(".table-contact tbody tr").eq(trIndex);
+            $.ajax({
+                url: "http://172.16.1.28:8080/contact/edit.php",
+                dataType: "jsonp",
+                data: {
+                    id: tr.attr("data-id"),
+                    name: username,
+                    email: email,
+                    phone: phone
+                },
+                success: function (data) {
+                    if(data.code == 1){
+                        var tds = tr.children();
+                        tds.eq(0).text( username );
+                        tds.eq(1).text( phone );
+                        tds.eq(2).text( email );
+                        $("#myModal").modal("hide");
+                    }else{
+                        alert(data.msg);
+                    }
+                }
+            });
+        });
+
+        $(".table-contact").on("click", ".delete", function () {
+            var tr = $(this).closest("tr");
+            $.ajax({
+                url: "http://172.16.1.28:8080/contact/delete.php",
+                data: {id: tr.attr("data-id")},
+                dataType: "jsonp",
+                success: function (data) {
+                    if(data.code == 1){
+                        tr.remove();
+                        alert(data.msg);
+                    }else{
+                        alert(data.msg);
+                    }
+                }
+            })
+        }).on("click", ".edit", function () {
+            var tr = $(this).closest("tr");
+            $(".save-edit").data("trIndex", tr.index());
+            var tds = $(this).parent().siblings();
+            $('#myModal').data("form-data", {
+                username: tds.eq(0).text(),
+                phone: tds.eq(1).text(),
+                email: tds.eq(2).text()
+            }).modal("show");
+        });
+
+        //弹出框显示时设置输入框的内容
+        $("#myModal").on("show.bs.modal", function (event) {
+            var data = $(this).data("form-data");
+            var inputs = $(this).find(".form-control");
+            inputs.eq(0).val( data.username );
+            inputs.eq(1).val( data.phone );
+            inputs.eq(2).val( data.email );
+        });
+
+    })
+
+    </script>
+</body>
+</html>

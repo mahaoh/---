@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .uls li.active{
+            background: red;
+        }
+        #seach{
+            background: url("images/seach.png") no-repeat left center;
+            background-size: 32px 32px;
+            background-position-x: 10px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="seach" placeholder="输入您要搜索的内容" style=" width: 100%;height: 30px; margin-bottom: .4rem;text-indent: 14px;">
+<button id="btn" disabled="disabled">搜索</button>
+<ul class="shop-list">
+    <li title="哈哈22哈哈">哈22.</li>
+    <li title="我节食减肥">我节食减肥</li>
+    <li title="那女的就可能">那女的就可能</li>
+    <li title="哈哈当时的哈哈">哈哈当时的哈哈</li>
+    <li title="您说的对">您说的对</li>
+    <li title="奶奶单独">奶奶单独</li>
+    <li title="答案啊">答案啊</li>
+
+</ul>
+
+
+<!--<form action="/example/html5/demo_form.asp" method="get">-->
+   <!--搜索： <input type="search" list="url_list" name="link" />-->
+    <!--<datalist id="url_list">-->
+        <!--<option label="W3School" value="哈哈哈哈" />-->
+        <!--<option label="Google" value="呵呵呵" />-->
+        <!--<option label="Microsoft" value="ahh护手霜哈" />-->
+    <!--</datalist>-->
+    <!--<input type="submit" />-->
+<!--</form>-->
+<script src="lib/jquery-3.2.1.min.js"></script>
+<script>
+
+
+    $(function () {
+        function  seach_list() {
+            var seach=$('#seach').val();
+            if(seach==''){
+                $('.shop-list li').show();
+                $('#btn').attr('disabled',true);
+            }else {
+                $('#btn').removeAttr('disabled')
+                $('.shop-list li').each(function () {
+                    var cittitle=$(this).attr('title');
+                    if(cittitle.indexOf(seach) != -1){
+                        $(this).show();
+                        console.log('有')
+                    }else{
+                        $(this).hide();
+                        console.log('么有')
+                    }
+                })
+            }
+        }
+        $('#seach').bind('input porpertychange',function () {
+            seach_list()
+        })
+
+    $('.shop-list').on('click','li',function () {
+        console.log($(this).text())
+    })
+     // $('#seach').keyup(function (event) {
+     //     if(event.keyCode === 40){
+     //         if($('.active').length===0){
+     //             $('.uls li:first-child').addClass('active')
+     //         }else{
+     //             $('.active').removeClass('active').next().addClass('active')
+     //         }
+     //     }else if(event.keyCode === 38){
+     //         if($('.active').length===0){
+     //             $('.uls li:last-child').addClass('active')
+     //         }else{
+     //             $('.active').removeClass('active').prev().addClass('active')
+     //         }
+     //     }else{
+     //        var  seach=$('#seach').val();
+     //         // var arr=['aaa','sssa','cccc','sssaa'];
+     //         var arr=[];
+     //        $('.uls').children().each(function (index) {
+     //              arr.push($(this).attr('title'));
+     //          })
+     //         var newArr=arr.filter(function (x) {
+     //
+     //             return  x.indexOf(seach) > -1;
+     //          });
+     //           $('.uls').html('');
+     //            $.each(newArr,function (i,n) {
+     //                   var _li='<li>'+n+'</li>';
+     //                $('.uls').append(_li)
+     //             })
+     //     }
+     // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //     $('#btn').click(function () {
+    //         var seach_val=$('#seach').val();
+    //         var arr=[];
+    //         $('.uls').children().each(function (index) {
+    //             arr.push($(this).attr('title'));
+    //
+    //         })
+    //     console.log(arr)
+    // //
+    // for(var fi in arr) {
+    //     if (arr[fi].indexOf(seach_val) > -1) {
+    //         alert('匹配到');
+    //     } else {
+    //         for (var i = 0; i < arr[fi].length; i++) {
+    //             console.log(i)
+    //         }
+    //     }
+    // }
+    // })
+
+        // $('.uls>li').each(function () {
+        //     var _this=$(this);
+        //     $('#btn').click(function () {
+        //         if($('#seach').val()==''||null||undefined){
+        //             $(this).attr('disabled',true)
+        //         }else{
+        //             $(this).removeAttr('disabled');
+        //             _this.text().indexOf($('#seach').val())>-1 ? alert('匹配到'): (_this.text(''))
+        //         }
+        //     })
+        // })
+        //
+        // $('#seach').bind('input porpertychange',function () {
+        //     console.log($(this).val().length)
+        //     if($(this).val().length==0){
+        //         $('#btn').attr('disabled',true);
+        //         var arrs=[];
+        //         $('.uls').children().each(function (index) {
+        //             arrs.push($(this).attr('title'));
+        //         })
+        //         $('.uls').html('');
+        //         console.log( $('.uls').children())
+        //         $.each(arrs,function (i,n) {
+        //
+        //             var _li='<li>'+n+'</li>';
+        //             $('.uls').append(_li)
+        //         })
+        //     }else{
+        //         $('#btn').removeAttr('disabled');
+        //        $('#btn').on('click',function () {
+        //            var seach=$('#seach').val();
+        //            var arr=[];
+        //            $('.uls').children().each(function (index) {
+        //                arr.push($(this).attr('title'));
+        //            })
+        //            var newArr=arr.filter(function (x) {
+        //                return  x.indexOf(seach) > -1;
+        //            });
+        //            $('.uls').html('');
+        //            $.each(newArr,function (i,n) {
+        //                var _li='<li>'+n+'</li>';
+        //                $('.uls').append(_li)
+        //            })
+        //        })
+        //     }
+        // })
+    })
+
+
+</script>
+</body>
+</html>

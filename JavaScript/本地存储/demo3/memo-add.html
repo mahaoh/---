@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="备忘录">
+  <title> 备忘录 </title>
+</head>
+<body>
+    
+  <textarea class="text"></textarea>
+  <button class="save">保存</button>
+
+  <script src="../js/jquery-1.12.4.min.js"></script>
+  <script>
+    
+    $(function(){
+      $(".save").click(function(){
+        var val = $(".text").val();
+        
+        var data = localStorage.getItem("memos");
+        if(data){
+          //已经存储过之后
+          data = JSON.parse(data);
+          data.push( val );
+        }else{
+          //第一次保存，存储里还没有值的时候
+          data = [ val ];
+        }
+        
+        localStorage.setItem("memos", JSON.stringify(data));
+
+      })
+    })
+
+  </script>
+</body>
+</html>

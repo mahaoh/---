@@ -1,0 +1,523 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,  user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>simplePaging－简洁易用的分页插件</title>
+    <style>
+        /*当前页面样式*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            position: relative;
+            font: 14px/1.42857143 'Microsoft YaHei', '微软雅黑', '宋体';
+            color: #333;
+            background-color: #fff;
+            min-width: 1220px;
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        .instructions {
+            position: absolute;
+            right: 0;
+            top: 50px;
+            margin: 20px;
+            width: 700px;
+        }
+
+        .instructions table {
+            width: 100%;
+        }
+
+        .instructions table th,
+        .instructions table td {
+            width: 15%;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        .instructions table th:last-child,
+        .instructions table td:last-child {
+            width: 55%;
+            padding-left: 5px;
+            text-align: left;
+        }
+
+        .part {
+            width: 480px;
+            margin: 10px;
+            padding: 10px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+        }
+
+        .part p {
+            padding-left: 2px;
+        }
+        .red{
+            color: red;
+        }
+        .page{
+            height: 20px;
+            line-height: 20px;
+        }
+        .page:before{
+            content: "回调显示页码：";
+            color: red;
+        }
+        pre{
+            display: block;
+            background-color: #ececec;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        .title{
+            color: #f90;
+            margin-bottom: 2px;
+        }
+        .showPage{
+            border: 1px solid #333;
+        }
+        .showPage div{
+            background-color: #ccc;
+            margin-top: 2px;
+        }
+        .showPage div:first-child{
+            margin-top: 0;
+        }
+
+        .showPage2{
+            border: 1px solid #333;
+        }
+        .showPage2 div{
+            background-color: #ccc;
+            margin-top: 2px;
+        }
+        .showPage2 div:first-child{
+            margin-top: 0;
+        }
+        .reward{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        }
+        .reward button{
+            padding: 5px;
+            font-size: 16px;
+            border: none;
+            background-color: #9bf49f;
+            cursor: pointer;
+        }
+        .erweima {
+            position: absolute;
+            display: none;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 130px;
+            margin: -135px 0 0 -205px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+        .erweima div{
+            float: left;
+            width: 100px;
+            height: 100px;
+            line-height: 220px;
+            text-align: center;
+        }
+        .erweima .alipay{
+            background: url("img/alipay.png") no-repeat center;
+            background-size:90px 90px;
+        }
+        .erweima .wx{
+            background: url("img/wx.png") no-repeat center;
+            background-size:90px 90px;
+        }
+        .reward:hover .erweima{
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="css/simplePaging.css">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="js/simplePaging.min.js"></script>
+</head>
+<body>
+<!--**********demo 开始**********-->
+
+<!--默认-->
+<div class="part part1">
+    <p class="title">默认:总页数12，显示页数5，初始化回调激活页绑定函数</p>
+    <div class="simplePaging"></div>
+    <pre>$(".simplePaging").simplePaging();</pre>
+    <script>
+        $(".simplePaging").simplePaging();
+    </script>
+</div>
+
+
+<!--总页数88，显示页数9,第一页显示为6，初始化跳转到7-->
+<div class="part part2">
+    <p class="title">总页数88，显示页数9,第一页显示为6，初始化跳转到7:</p>
+    <div class="simplePaging2"></div>
+    <pre>
+        $(".simplePaging2").simplePaging({
+            <span style="color: red">allPage: 88,</span>
+            <span style="color: red">showPage: 9,</span>
+            <span style="color: red">startPage: 6,</span>
+            <span style="color: red">initPage: 7</span>
+        });</pre>
+    <script>
+        $(".simplePaging2").simplePaging({
+            allPage: 88,//总页数
+            showPage: 9,//显示页数
+            startPage: 6,//第一页页码数字
+            initPage: 7//加载完毕自动跳转到第n页
+        });
+    </script>
+</div>
+
+
+<!--animationTime为50，回调显示页码-->
+<div class="part part3">
+    <p class="title">animationTime为50,回调显示页码:</p>
+    <div class="simplePaging3"></div>
+    <div class="page simplePaging3PageNum"></div>
+    <pre>
+        $(".simplePaging3").simplePaging({
+            allPage: 88,
+            showPage: 9,
+            <span style="color: red">animateType: "animation",</span>
+            <span style="color: red">animationTime: 50,</span>
+            callBack: function (num) {
+                $(".simplePaging3PageNum").text(num)
+            }
+        });</pre>
+    <script>
+        $(".simplePaging3").simplePaging({
+            allPage: 88,//总页数
+            showPage: 9,//显示页数
+            animateType: "animation",//过渡模式：动画“animation”、跳动“jumpy”、快速移动“fast”、正常速度移动“normal”、缓慢的速度移动“slow”、异常缓慢的速度移动“verySlow”
+            animationTime: 50,//animateType为animation时，动画过渡时间(ms)
+            callBack: function (num) {
+                $(".simplePaging3PageNum").text(num)
+            }
+        });
+    </script>
+</div>
+
+
+<!--animateType为"jumpy"-->
+<div class="part part4">
+    <p class="title">animateType为"jumpy":</p>
+    <div class="simplePaging4"></div>
+    <div class="page simplePaging4PageNum"></div>
+    <pre>
+        $(".simplePaging4").simplePaging({
+            allPage: 88,
+            showPage: 9,
+            <span style="color: red">animateType: "jumpy",</span>
+            animationTime: 300,
+            callBack: function (num) {
+                $(".simplePaging4PageNum").text(num)
+            }
+        });</pre>
+    <script>
+        $(".simplePaging4").simplePaging({
+            allPage: 88,//总页数
+            showPage: 9,//显示页数
+            animateType: "jumpy",//过渡模式：动画“animation”、跳动“jumpy”、快速移动“fast”、正常速度移动“normal”、缓慢的速度移动“slow”、异常缓慢的速度移动“verySlow”
+            animationTime: 300,//animateType为animation时，动画过渡时间(ms)
+            callBack: function (num) {
+                $(".simplePaging4PageNum").text(num)
+            }
+        });
+    </script>
+</div>
+
+
+<!--显示跳转按钮，每次页面首次加载完毕不回调callBack，改变触发按键符号-->
+<div class="part part5">
+    <p class="title">显示跳转按钮，每次页面首加载完毕不回调callBack，改变触发按键符号:</p>
+    <div class="simplePaging5"></div>
+    <div class="page simplePaging5PageNum"></div>
+    <pre>
+        $(".simplePaging5").simplePaging({
+            allPage: 88,
+            showPage: 9,
+            startPage: 1,
+            initPage: 1,
+            <span style="color: red">initPageClick:false,</span>
+            <span style="color: red">showTurnTo: true,</span>
+            <span style="color: red">first: "first",</span>
+            <span style="color: red">last: "last",</span>
+            <span style="color: red">prev: "<",</span>
+            <span style="color: red">next: ">",</span>
+            animateType: "normal",
+            animationTime: 300,
+            callBack: function (num) {
+                $(".simplePaging5PageNum").append(num+"&nbsp;&nbsp;&nbsp;&nbsp;")
+            }
+        });</pre>
+    <script>
+        $(".simplePaging5").simplePaging({
+            allPage: 88,//总页数
+            showPage: 9,//显示页数
+            startPage: 1,//第一页页码数字
+            initPage: 1,//加载完毕自动跳转到第n页
+            initPageClick:false,//每次页面加载完毕后，是否触发initPage页的绑定事件
+            first: "first",//首页显示字符
+            last: "last",//尾页显示字符
+            prev: "<",//上一页显示字符
+            next: ">",//下一页显示字符
+            showTurnTo: true,//是否显示跳转按钮，false不显示，true显示
+            animateType: "normal",//过渡模式：动画“animation”、跳动“jumpy”、快速移动“fast”、正常速度移动“normal”、缓慢的速度移动“slow”、异常缓慢的速度移动“verySlow”
+            animationTime: 300,//animateType为animation时，动画过渡时间(ms)
+            callBack: function (num) {
+                $(".simplePaging5PageNum").append(num+"&nbsp;&nbsp;&nbsp;&nbsp;")
+            }
+        });
+    </script>
+</div>
+<!--实例-->
+<div class="part part6" style="padding-bottom: 10px;">
+    <p class="title">实例：加载时回调数（适合ajax局部刷新）</p>
+    <div class="showPage" style="margin-bottom: 5px;"></div>
+    <div class="showPagePaging" style="margin: 0 auto"></div>
+    <script>
+        var testData={
+            allPage:30,
+            data:[
+                {n0:"000", n1:"001", n2:"002", n3:"003", n4:"004", n5:"005", n6:"006", n7:"007", n8:"008", n9:"009"},
+                {n0:"010", n1:"011", n2:"012", n3:"013", n4:"014", n5:"015", n6:"016", n7:"017", n8:"018", n9:"019"},
+                {n0:"020", n1:"021", n2:"022", n3:"023", n4:"024", n5:"025", n6:"026", n7:"027", n8:"028", n9:"029"},
+                {n0:"030", n1:"031", n2:"032", n3:"033", n4:"034", n5:"035", n6:"036", n7:"037", n8:"038", n9:"039"},
+                {n0:"040", n1:"041", n2:"042", n3:"043", n4:"044", n5:"045", n6:"046", n7:"047", n8:"048", n9:"049"},
+                {n0:"050", n1:"051", n2:"052", n3:"053", n4:"054", n5:"055", n6:"056", n7:"057", n8:"058", n9:"059"},
+                {n0:"060", n1:"061", n2:"062", n3:"063", n4:"064", n5:"065", n6:"066", n7:"067", n8:"068", n9:"069"},
+                {n0:"070", n1:"071", n2:"072", n3:"073", n4:"074", n5:"075", n6:"076", n7:"077", n8:"078", n9:"079"},
+                {n0:"080", n1:"081", n2:"082", n3:"083", n4:"084", n5:"085", n6:"086", n7:"087", n8:"088", n9:"089"},
+                {n0:"090", n1:"091", n2:"092", n3:"093", n4:"094", n5:"095", n6:"096", n7:"097", n8:"098", n9:"099"},
+                {n0:"100", n1:"101", n2:"102", n3:"103", n4:"104", n5:"105", n6:"106", n7:"107", n8:"108", n9:"109"},
+                {n0:"110", n1:"111", n2:"112", n3:"113", n4:"114", n5:"115", n6:"116", n7:"117", n8:"118", n9:"119"},
+                {n0:"120", n1:"121", n2:"122", n3:"123", n4:"124", n5:"125", n6:"126", n7:"127", n8:"128", n9:"129"},
+                {n0:"130", n1:"131", n2:"132", n3:"133", n4:"134", n5:"135", n6:"136", n7:"137", n8:"138", n9:"139"},
+                {n0:"140", n1:"141", n2:"142", n3:"143", n4:"144", n5:"145", n6:"146", n7:"147", n8:"148", n9:"149"},
+                {n0:"150", n1:"151", n2:"152", n3:"153", n4:"154", n5:"155", n6:"156", n7:"157", n8:"158", n9:"159"},
+                {n0:"160", n1:"161", n2:"162", n3:"163", n4:"164", n5:"165", n6:"166", n7:"167", n8:"168", n9:"169"},
+                {n0:"170", n1:"171", n2:"172", n3:"173", n4:"174", n5:"175", n6:"176", n7:"177", n8:"178", n9:"179"},
+                {n0:"180", n1:"181", n2:"182", n3:"183", n4:"184", n5:"185", n6:"186", n7:"187", n8:"188", n9:"189"},
+                {n0:"190", n1:"191", n2:"192", n3:"193", n4:"194", n5:"195", n6:"196", n7:"197", n8:"198", n9:"199"},
+                {n0:"200", n1:"201", n2:"202", n3:"203", n4:"204", n5:"205", n6:"206", n7:"207", n8:"208", n9:"209"},
+                {n0:"210", n1:"211", n2:"212", n3:"213", n4:"214", n5:"215", n6:"216", n7:"217", n8:"218", n9:"219"},
+                {n0:"220", n1:"221", n2:"222", n3:"223", n4:"224", n5:"225", n6:"226", n7:"227", n8:"228", n9:"229"},
+                {n0:"230", n1:"231", n2:"232", n3:"233", n4:"234", n5:"235", n6:"236", n7:"237", n8:"238", n9:"239"},
+                {n0:"240", n1:"241", n2:"242", n3:"243", n4:"244", n5:"245", n6:"246", n7:"247", n8:"248", n9:"249"},
+                {n0:"250", n1:"251", n2:"252", n3:"253", n4:"254", n5:"255", n6:"256", n7:"257", n8:"258", n9:"259"},
+                {n0:"260", n1:"261", n2:"262", n3:"263", n4:"264", n5:"265", n6:"266", n7:"267", n8:"268", n9:"269"},
+                {n0:"270", n1:"271", n2:"272", n3:"273", n4:"274", n5:"275", n6:"276", n7:"277", n8:"278", n9:"279"},
+                {n0:"280", n1:"281", n2:"282", n3:"283", n4:"284", n5:"285", n6:"286", n7:"287", n8:"288"},
+                {n0:"290", n1:"291", n2:"292", n3:"293", n4:"294", n5:"295", n6:"296"}
+            ]
+        };
+        $(".showPagePaging").simplePaging({
+            allPage: testData.allPage,//总页数
+            showPage: 9,//显示页数
+            startPage: 1,//第一页页码数字
+            initPage: 1,//加载完毕自动跳转到第n页(初始化激活页)
+            initPageClick:true,//每次页面加载完毕后，是否触发initPage页的绑定事件
+            first: "首页",//首页显示字符
+            last: "尾页",//尾页显示字符
+            prev: "«",//上一页显示字符
+            next: "»",//下一页显示字符
+            showTurnTo: true,//是否显示跳转按钮，true显示，false不显示
+            animateType: "animation",//过渡模式：动画“animation”、跳动“jumpy”、快速移动“fast”、正常速度移动“normal”、缓慢的速度移动“slow”、异常缓慢的速度移动“verySlow”
+            animationTime: 300,//animateType为animation时，动画过渡时间(ms)
+            callBack: function (num) {
+                var showPage = $(".showPage");
+                var data  = testData.data[num-1];
+                var str = "";
+                for (var key in data){
+                    str+="<div>"+data[key]+"</div>";
+                }
+                showPage.html(str);
+            }
+        })
+    </script>
+</div>
+
+<!--实例2-->
+<div class="part part7" style="padding-bottom: 10px;">
+    <p class="title">实例2：加载时不回调数（适合刷新加载）</p>
+    <div class="showPage2" style="margin-bottom: 5px;"></div>
+    <div class="showPagePaging2" style="margin: 0 auto"></div>
+    <script>
+        var showPage2 = $(".showPage2");
+        var data  = testData.data[5];
+        var str = "";
+        for (var key in data){
+            str+="<div>"+data[key]+"</div>";
+        }
+        showPage2.html(str);
+        $(".showPagePaging2").simplePaging({
+            allPage: testData.allPage,//总页数
+            showPage: 9,//显示页数
+            startPage: 1,//第一页页码数字
+            initPage: 5,//加载完毕自动跳转到第n页(初始化激活页)
+            initPageClick:false,//每次页面加载完毕后，是否触发initPage页的绑定事件
+            first: "首页",//首页显示字符
+            last: "尾页",//尾页显示字符
+            prev: "«",//上一页显示字符
+            next: "»",//下一页显示字符
+            showTurnTo: true,//是否显示跳转按钮，true显示，false不显示
+            animateType: "animation",//过渡模式：动画“animation”、跳动“jumpy”、快速移动“fast”、正常速度移动“normal”、缓慢的速度移动“slow”、异常缓慢的速度移动“verySlow”
+            animationTime: 300,//animateType为animation时，动画过渡时间(ms)
+            callBack: function (num) {
+                location.reload();
+            }
+        })
+    </script>
+</div>
+
+
+<!--**********demo 结束**********-->
+
+<!--**********文档说明 开始**********-->
+<div class="instructions">
+    <strong>文档说明：</strong>
+    <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <th>参数名</th>
+            <th>参数类型</th>
+            <th>可选参数</th>
+            <th>说明</th>
+        </tr>
+        <tr>
+            <td>allPage</td>
+            <td>number</td>
+            <td>自定义数字</td>
+            <td>默认值：12。<span class="red">总页数</span>：页码器总共多少页。</td>
+        </tr>
+        <tr>
+            <td>showPage</td>
+            <td>number</td>
+            <td>自定义数字</td>
+            <td>默认值：5。<span class="red">显示页数</span>：页码器显示几页。</td>
+        </tr>
+        <tr>
+            <td>startPage</td>
+            <td>number</td>
+            <td>自定义数字</td>
+            <td>默认值：1。<span class="red">首页页码数字。</span></td>
+        </tr>
+        <tr>
+            <td>initPage</td>
+            <td>number</td>
+            <td>自定义数字</td>
+            <td>默认值：1。<span class="red">加载完毕自动跳转到第n页</span>：此值小于<span class="red">startPage</span>则跳转首页，反之跳转尾页。</td>
+        </tr>
+        <tr>
+            <td>initPageClick</td>
+            <td>boolean</td>
+            <td>true或false</td>
+            <td>默认值：true(回调)。<span class="red">每次页面加载完毕后，是否触发initPage页的绑定事件</span>,false不回调。</td>
+        </tr>
+        <tr>
+            <td>first</td>
+            <td>string</td>
+            <td>自定义字符串</td>
+            <td>默认值："首页"。<span class="red">首页显示字符</span>。</td>
+        </tr>
+        <tr>
+            <td>last</td>
+            <td>string</td>
+            <td>自定义字符串</td>
+            <td>默认值："尾页"。<span class="red">尾页显示字符</span>。</td>
+        </tr>
+        <tr>
+            <td>prev</td>
+            <td>string</td>
+            <td>自定义字符串</td>
+            <td>默认值："«"。<span class="red">上一页显示字符</span>。</td>
+        </tr>
+        <tr>
+            <td>next</td>
+            <td>string</td>
+            <td>自定义字符串</td>
+            <td>默认值："»"。<span class="red">下一页显示字符</span>。</td>
+        </tr>
+        <tr>
+            <td>showTurnTo</td>
+            <td>boolean</td>
+            <td>true或false</td>
+            <td>默认值：false(不显示)。<span class="red">是否显示“跳转”项</span>，true时显示。为true时，页码输入框输入完毕，按下<span class="red">回车键即可立即执行跳转</span>。输入页码小于<span class="red">startPage</span>跳转首页，反之跳至尾页。</td>
+        </tr>
+        <tr>
+            <td>animateType</td>
+            <td>string</td>
+            <td>
+                "animation"<br/>
+                "jumpy"<br/>
+                "fast"<br/>
+                "normal"<br/>
+                "slow"<br/>
+                "verySlow"
+            </td>
+            <td>
+                默认值："animation"。<span class="red">动画过渡模式</span>。<br/>
+                立即，对应animationTime=0<br/>
+                100ms，对应animationTime=100<br/>
+                200ms，对应animationTime=200<br/>
+                400ms，对应animationTime=400<br/>
+                800ms，对应animationTime=800<br/>
+            </td>
+        </tr>
+        <tr>
+            <td>animationTime</td>
+            <td>number</td>
+            <td>自定义数字</td>
+            <td>默认值：300。<span class="red">仅为animateType为animation时生效</span>，设置<span class="red">动画过渡时间(ms)</span>。</td>
+        </tr>
+        <tr>
+            <td>callBack</td>
+            <td>function</td>
+            <td>自定义方法</td>
+            <td>默认值：打印页码。用于<span class="red">回调函数扩展方法</span>。</td>
+        </tr>
+    </table>
+    <p style="background-color: #ececec;margin-top: 5px;">默认参数</p>
+    <pre style="margin-top: 2px;">
+        allPage: 12,//总页数
+        showPage: 5,//显示页数
+        startPage: 1,//第一页页码数字
+        initPage: 1,//加载完毕自动跳转到第n页(初始化激活页)
+        initPageClick:true,//每次页面加载完毕后，是否触发initPage页的绑定事件
+        first: "首页",//首页显示字符
+        last: "尾页",//尾页显示字符
+        prev: "«",//上一页显示字符
+        next: "»",//下一页显示字符
+        showTurnTo: false,//是否显示跳转按钮，true显示，false不显示
+        animateType: "animation",//过渡模式：动画“animation”、跳动“jumpy”、快速移动“fast”、正常速度移动“normal”、缓慢的速度移动“slow”、异常缓慢的速度移动“verySlow”
+        animationTime: 300,//animateType为animation时，动画过渡时间(ms)
+        callBack: function (num) {
+            console.log(num)
+        }</pre>
+</div>
+<div class="reward">
+    <button>打赏支持</button>
+    <div class="erweima">
+        <div class="alipay">支付宝</div>
+        <div class="wx">微信</div>
+    </div>
+</div>
+<!--**********文档说明 结束**********-->
+
+</body>
+</html>

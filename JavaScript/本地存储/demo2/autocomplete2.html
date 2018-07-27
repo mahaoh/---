@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>自动完成</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+</head>
+<body>
+    <style>
+        .form{
+            position: relative;
+        }
+        .list{
+            display: none;
+            position: absolute;
+            top: 23px;
+            left: 0;
+            border: 1px solid red;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 200px;
+        }
+        .list li.hover{
+            background: red;
+            color: white;
+        }
+    </style>
+
+    <form class="form">
+        <input type="text" class="input" />
+        <ul class="list"></ul>
+        <button type="button" class="btn">保存</button>
+    </form>
+    
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/template-web.js"></script>
+    <script type="text/html" id="li-temp">
+        {{each list v}}
+        <li>{{v.text}}</li>
+        {{/each}}
+    </script>
+    
+    <script>
+
+        function set(data){
+            localStorage.setItem("data-list", JSON.stringify(data))
+        }
+
+        function get(){
+            var d = localStorage.getItem("data-list");
+            return d ? JSON.parse(d) : [];
+        }
+
+        function rander(data){
+            var htmlStr = template("li-temp", {list: data});
+            $(".list").html(htmlStr);
+        }
+
+        $(".input").on("input", function(){
+            var val = $(this).val();
+
+            var newData = get().filter(function(v){
+                if(v.text.indexOf(val) != -1 && val != ""){
+                    return v;
+                }
+            })
+
+            if(newData.length){
+                rander(newData);
+                $(".list").show();
+            }else{
+                $(".list").hide();
+            }
+        }).on("dblclick", function(){
+            var dataArr = get();
+
+            if(dataArr.length){
+                rander(dataArr);
+                $(".list").show();
+            }else{
+                $(".list").hide();
+            }
+        })
+
+        $(".list").on("click", "li", function(){
+            $(".input").val( $(this).html() );
+            $(".list").hide();
+        }).on("mouseover", function(e){
+            if(e.target.nodeName == "LI"){
+                $(e.target).addClass("hover").siblings().removeClass("hover");
+            }
+        })
+
+        $(".btn").on("click", function(){
+            var obj = {
+                text: $(".input").val()
+            };
+            if(!obj.text) return alert("不能为空");
+
+            var data = get();
+            if(data.length){
+                data.push(obj);
+            }else{
+                data = [obj];
+            }
+            set(data);
+        })
+    </script>
+</body>
+</html>

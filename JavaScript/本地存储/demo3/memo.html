@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="备忘录">
+  <title> 备忘录 </title>
+  <style>
+    .title a{
+      float: right;
+    }
+    .memo li{
+      list-style: none;
+      line-height: 2;
+      border: 1px solid red;
+      font-size: 20px;
+    }
+    .memo li span.del{
+      float: right;
+    }
+  </style>
+</head>
+<body>
+    <h1 class="title">备忘录<a href="memo-add.html">添加</a></h1>
+    <ul class="memo"></ul>
+
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script>
+      
+      window.onload = function(){
+
+        //点击删除
+        $(".memo").on("click", ".del", function(){
+          var li = $(this).parent();
+          memos.splice(li.index(), 1);
+          localStorage.setItem("memos", JSON.stringify(memos));
+          li.remove();
+        })
+
+        //先获取到存储里的所有数据
+        var memos = localStorage.getItem("memos");
+        if(memos){
+          
+          memos = JSON.parse(memos);
+          var str = "";
+          memos.forEach(function(v){
+            str += '<li>'+
+                '<span>'+ v +'</span>'+
+                '<span class="del">删除</span>'+
+                '</li>';
+          })
+          $(".memo").html(str);
+        }
+        
+      }
+    </script>
+</body>
+</html>

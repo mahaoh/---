@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+	<body>
+		
+		<button id="get1" style="font-size:20px;">获取session</button>
+		<button id="get2" style="font-size:20px;">获取local</button>
+		<button id="get3" style="font-size:20px;">获取cookie</button>
+		
+		<div>当前登陆的用户是：<span id="userinfo"></span></div>
+		
+		<script src="js/jquery-1.12.4.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script type="text/javascript">
+			
+			document.getElementById("get1").onclick = function(){
+                var user = sessionStorage.getItem("data-user");
+                if(user){
+                    document.getElementById("userinfo").innerHTML = user;
+                }else{
+                    alert("没有获取到登陆状态");
+                }
+            }
+			
+			document.getElementById("get2").onclick = function(){
+				var userinfo = localStorage.getItem("data-user");
+                if(userinfo){
+                    document.getElementById("userinfo").innerHTML = userinfo;
+                }else{
+                    alert("没有获取到登陆状态");
+                }
+			}
+			
+			document.getElementById("get3").onclick = function(){
+				var cookie = document.cookie;
+                if(cookie){
+                    document.getElementById("userinfo").innerHTML = cookie;
+                }else{
+                    alert("没有获取到登陆状态");
+                }
+			}
+		</script>
+		
+	</body>
+</html>

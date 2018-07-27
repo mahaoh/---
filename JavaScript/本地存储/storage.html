@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+</head>
+<body>
+
+    不管存储是要存储什么，最好都保持加密（base64, sha1, md5, hash...）
+
+    <h5>html5新特性之web storage，本地存储|离线存储</h5>
+        只能存储字符串，存储大小4~5M，两百多万字的小说
+
+        ：localStorage(本地存储)，只要没有手动清除，就会一直保留，永久存储，以文件形式存储，
+        ：sessionStorage(会话存储)，只会在窗口打开的时候才有效，一次性会话存储，关闭浏览器自动释放，以内存形式存储
+
+        session：是后端的会话存储，缓存会话(一次性会话)，跟sessionStorage没有关系
+
+        存储的时候都会有一个域的限制，不同域的存储是不能共享的
+
+        sessionStorage.setItem(name, value)  设置(数据的名字, 存储的数据)
+        sessionStorage.getItem(name)         获取(数据的名字)
+        sessionStorage.removeItem(name)      删除(数据的名字)
+
+        sessionStorage.setItem(name, null)   清除一个，其实就是覆盖设置
+        sessionStorage.clear()               清除所有
+        sessionStorage.length                存储的数据条数
+
+    <h4>html4及以前：cookie，4~5k，40-50个</h4>
+        使用键值对的GET形式存储，默认只是一次性会话，维持到浏览器关闭
+        expires参数，指定一条数据的失效时间，要在什么时间点失效，时间格式要为：UTC格林尼治时间，从现在的毫秒数时间叠加，加上多长毫秒后失效，再进行utc转换
+        domain参数，作用在某个域名下
+        path参数，限制在某个页面下
+
+        function toUTC(day){
+            var date = new Date();
+            date.setTime(date.getTime() + day * 864e+5);
+            return date.toUTCString();
+        }
+
+        document.cookie = "jian1=zhi1; domain=http://www.baidu.com";
+        document.cookie = "jian2=zhi2; expires=toUTC(1)";
+        document.cookie = "jian2=zhi2; expires=toUTC(0.5)";
+
+        cookie有个特殊的地方，只要是页面的请求，都会附带着cookie
+        无形中增加了请求的大小，浪费带宽，不能滥用
+        所以cookie用的地方都是跟当前用户有关系的
+        比方说每次请求个人资料的，后端需要靠前端传的cookie来判断登陆是否失效
+        安全方面：
+        cookie存储必须加密，加密方法必须严格，否则会被人轻易破解
+        或者由后端设置cookie不能由javascript操作
+        必须是基于服务器环境运行的页面，不能是file协议预览的页面
+
+    常见场景：
+        ：自动登陆，
+        ：缓存列表，便于更快的显示
+        ：本地离线应用，备忘录
+
+    local和session存储移动端用的多，存在兼容性问题，
+    所以现在pc上用的多的都是cookie
+    手机上的浏览器无痕模式，是不能使用这个本地存储的
+
+    浏览器同源策略：
+    同协议，同域名，同端口，只要有一个不同，就会有跨域问题
+    就会造成，不能跨域web存储，不能跨域写cookie，不能跨域ajax
+
+    ajax的跨域解决方案有哪些？
+    jsonp为什么不是真正的ajax？
+    1 后端设置允许跨域
+    Acces-Allow-Control-Origin: *或者指定域名;
+    2 后端设置代理
+    a.com(客户端) > a.com(服务端) > b.com(服务端)
+    3 jsonp
+    利用script标签的src不受跨域限制且加载的内容自动解析的特性
+    由后端返回一个被函数包裹的json，交给前端的script执行该函数
+    但仅限于get形式，所有的参数只能拼接在路径上
+    jsonp是利用的script执行函数，并没有使用Ajax对象，所以不是真正的Ajax，只是用来处理跨域问题的一种解决方案
+
+    sessionStorage和localStorage的区别？
+    sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。而localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。
+
+    web storage和cookie的区别
+    cookie是很早之前就有的，属于http协议的一部分，主要用来跟踪用户会话信息，验证客户端状态的存储技术，使用document.cookie进行存储，存储的大小是受限的，并且每次你请求一个新的页面或数据的时候Cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。
+    Web storage的概念和cookie相似，区别是它是为了更大容量存储设计的，除此之外，Web Storage拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。
+    但是Cookie也是不可或缺的：Cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在，而Web Storage仅仅是为了在本地“存储”数据而生。
+
+    <form>
+        <label>用户名：</label>
+        <input type="text" class="user"><br>
+        <label>密码：</label>
+        <input type="password" class="pwd"><br>
+        <input type="button" value="登陆" class="login">
+    </form>
+
+    <a target="_blank" href="storage-get.html" style="font-size:20px;">跳转获取页面</a>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+    
+        $(".login").on("click", function(){
+            
+            var o = {
+                user: $(".user").val(),
+                pwd: $(".pwd").val()
+            }
+
+            if(!/\w{6,10}/.test(o.user)) return alert("用户名格式不正确");
+
+            localStorage.setItem("data-user", o.user);
+            alert("登陆成功")
+
+        })
+
+
+    /*
+    function toUTC(day){
+        var date = new Date();
+        date.setTime(date.getTime() + day*24*60*60*1000)
+        return date.toUTCString();
+    }
+
+    $("input:button").click(function(){
+
+        var user = $(".user").val();
+        var pwd = $(".pwd").val();
+
+        if(user && pwd){
+
+            //错误形式
+            //document.cookie = "datauser=zhi1&datapwd=zhi2"
+
+            //正确形式，一行语句只能存储一条
+            //document.cookie = "data-user=" + user;
+            //document.cookie = "data-pwd=" + pwd + "; expires=" + toUTC(1/24/60);
+            
+            //$.cookie("dataUser", user, {expires: 0.5});
+        
+            alert("登陆成功");
+        }else{
+            alert("登陆失败");
+        }
+
+    })
+    */
+    
+    </script>
+
+    本地数据库websql：database，增删改查
+    openDatabase：这个方法使用现有的数据库或者新建的数据库创建一个数据库对象。
+    transaction：这个方法让我们能够控制一个事务，以及基于这种情况执行提交或者回滚。
+    executeSql：这个方法用于执行实际的 SQL 查询。
+
+    sql操作语句：select * from 表名 where 条件
+    mysql操作数据库：库 > 表 > 行列 > 单元
+    增 insert into `表名` (`列名1`, `列名2`) values (`值1`, `值2`)
+    insert into `0210` (`name`,`age`) values('我是增加的数据', 1234567);
+
+    删 delete from 表名 where 条件
+    delete from `0210` where `name`='kangjian'
+    delete from `0210` where `id`>1
+
+    改 update 表名 set 列名=新值 where 条件
+    update `0210` set `age`=35 where `name`="王东风"
+    update `0210` set `age`=35,`name`='王董封' where `name`="王东风"
+
+    查 select * from 表名
+    查询所有数据
+    select * from `0210`
+    查询所有数据里的name
+    select `name` from `0210`
+    查询所有数据里id>1的
+    selct * from `0210` where id>1
+    查询所有数据里id>1并且&lt;10
+    selct * from `0210` where id>1 and id &lt; 10
+
+<script>
+    //打开或者创建数据库
+    /*
+    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+
+    db.transaction(function (tx) {
+        //创建个表
+        tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
+        //插入两条数据
+        tx.executeSql('INSERT INTO LOGS (id, log) VALUES (1, "菜鸟教程")');
+        tx.executeSql('INSERT INTO LOGS (id, log) VALUES (2, "www.runoob.com")');
+    });
+
+    db.transaction(function (tx) {
+        //查询数据
+        tx.executeSql('SELECT * FROM LOGS', [], function (tx, results) {
+            var len = results.rows.length;
+            var msg = "<p>查询记录条数: " + len + "</p>";
+            document.body.innerHTML += msg;
+            for (var i = 0; i < len; i++){
+                alert(results.rows.item(i).log );
+            }
+        }, null);
+    });
+    */
+</script>
+</body>
+</html>

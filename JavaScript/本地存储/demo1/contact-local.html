@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">通讯录</a>
+            </div>
+            <div class="collapse navbar-collapse" id="collapse-1">
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" name="search" class="form-control form-search" placeholder="请输入要搜索的内容">
+                    </div>
+                    <button type="button" class="btn btn-default btn-search">搜索</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form class="form-contact">
+            <div class="form-group">
+                <label for="username">姓名</label>
+                <input type="text" class="form-control" id="username" placeholder="请输入姓名" value="哇哈哈">
+            </div>
+            <div class="form-group">
+                <label for="phone">电话</label>
+                <input type="tel" class="form-control" id="phone" placeholder="请输入电话" value="18600143097">
+            </div>
+            <div class="form-group">
+                <label for="email">邮箱</label>
+                <input type="email" class="form-control" id="email" placeholder="请输入电话" value="cab0720@163.com">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default save">保存</button>
+            </div>
+        </form>
+
+        <div class="table-responsive">
+            <table class="table table-contact table-hover table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th data-toggle="modal" data-target="#myModal">姓名</th>
+                        <th>电话</th>
+                        <th>邮箱</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">修改</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="modal-contact">
+                        <div class="form-group">
+                            <label for="modal-username">姓名</label>
+                            <input type="text" class="form-control" id="modal-username" placeholder="请输入姓名">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-phone">电话</label>
+                            <input type="number" class="form-control" id="modal-phone" placeholder="请输入电话">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email">邮箱</label>
+                            <input type="email" class="form-control" id="modal-email" placeholder="请输入电话">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary save-edit">保存修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/template-web.js"></script>
+    <script type="text/html" id="contact-template">
+        {{each abc v i}}
+        <tr>
+            <td>{{v.name}}</td>
+            <td>{{v.phone}}</td>
+            <td>{{v.email}}</td>
+            <td>
+                <button class='btn btn-danger btn-sm delete'>删除</button>
+                <button class='btn btn-danger btn-sm edit'>修改</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+    
+    <script>
+
+    jQuery(function ($) {
+
+        function set(key, value){
+            //sessionStorage.setItem(key, value);
+            localStorage.setItem(key, value);
+        }
+
+        function get(key){
+            //return sessionStorage.getItem(key);
+            return localStorage.getItem(key);
+        }
+
+        //查询数据库里所有数据
+        function getAllData(sc) {
+            var data = get("contact-list");
+            if(data){
+                data = JSON.parse(data);
+                if(sc){
+                    data = data.filter(function(v){
+                        return (v.name.indexOf(sc) != -1 || v.phone.indexOf(sc) != -1 || v.email.indexOf(sc) != -1);
+                    })
+                }
+                console.log(data);
+
+                //字符串拼接
+                /*
+                data.forEach(function(v, i){
+                })
+                $(data).each(function(i, v){
+                })
+                */
+                /*
+                var str = "";
+                for(var i = 0; i < data.length; i++){
+                    str += '<tr>'+
+                        '<td>' + data[i].name + '</td>'+
+                        '<td>' + data[i].phone + '</td>'+
+                        '<td>' + data[i].email + '</td>'+
+                        '<td>' +
+                            '<button class="btn btn-danger btn-sm delete">删除</button>'+
+                            '<button class="btn btn-danger btn-sm edit">修改</button>'+
+                        '</td>' +
+                    '</tr>';
+                }
+                console.log(str);
+                $(".table-contact tbody").html( str );
+                */
+
+                //节点克隆
+                /*
+                for(var i = 0; i < data.length; i++){
+                    var newTr = $(".tr-template").clone(true);
+                    var tds = newTr.removeClass().children("td");
+                    tds.eq(0).text( data[i].name );
+                    tds.eq(1).text( data[i].phone );
+                    tds.eq(2).text( data[i].email );
+                    newTr.show().appendTo( $(".table-contact tbody") );
+                }
+                */
+
+                //使用模板引擎
+                //artTemplate.js，腾讯内部出品，最新版本是4.10
+                //handlebar.js，underscore.js
+                //用法千篇一律，都差不多
+                //定义模板，定义变化的量，调用方法传数据，进行渲染
+                var htmlStr = template("contact-template", {abc: data});
+                console.log(htmlStr);
+                $(".table-contact tbody").html( htmlStr );
+            }
+        }
+
+        //页面刷新出来，加载所有
+        getAllData();
+
+        //点击搜索按钮，根据输入的内容搜索
+        $(".btn-search").on("click", function () {
+            getAllData( $(".form-search").val() );
+        });
+
+        //点击保存按钮，进行正则验证，并保存到后端
+        $(".save").on("click", function (e) {
+            e.preventDefault();
+
+            var inputs = $(".form-contact .form-control");
+            var username = inputs.eq(0).val();
+            var phone = inputs.eq(1).val();
+            var email = inputs.eq(2).val();
+
+            if( !/^[\u4e00-\u9fa5]{2,}$/.test(username) ) return alert("请输入真实姓名");
+            if( !/^1\d{10}$/.test(phone) ) return alert("请输入正确的手机号");
+            if( !/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email) ) return alert("请输入正确的邮箱格式");
+
+            var obj = {
+                name: username,
+                phone: phone,
+                email: email
+            }
+
+            var data = get("contact-list");
+            //第一次点击走的时候data为空，走else
+            if(data){
+                data = JSON.parse(data);
+                data.push(obj);
+                set("contact-list", JSON.stringify( data ));
+            }else{
+                set("contact-list", JSON.stringify( [obj] ));
+            }
+
+            console.log(get("contact-list"));
+
+            var str = '<tr>'+
+                '<td>' + username + '</td>'+
+                '<td>' + phone + '</td>'+
+                '<td>' + email + '</td>'+
+                '<td>'+
+                    '<button class="btn btn-danger btn-sm delete">删除</button>'+
+                    '<button class="btn btn-danger btn-sm edit">修改</button>'+
+                '</td>'+
+            '</tr>';
+
+            $(".table-contact tbody").append( str );
+
+        });
+
+        $(".save-edit").on("click", function (e) {
+            e.preventDefault();
+
+            var inputs = $(".modal-contact .form-control");
+            var username = inputs.eq(0).val();
+            var phone = inputs.eq(1).val();
+            var email = inputs.eq(2).val();
+
+            if( !/^[\u4e00-\u9fa5]{2,}$/.test(username) ) return alert("请输入真实姓名");
+            if( !/^1\d{10}$/.test(phone) ) return alert("请输入正确的手机号");
+            if( !/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email) ) return alert("请输入正确的邮箱格式");
+
+            var trIndex = $(this).data("trIndex");
+            var tr = $(".table-contact tbody tr").eq(trIndex);
+
+            var tds = tr.children();
+            tds.eq(0).text( username );
+            tds.eq(1).text( phone );
+            tds.eq(2).text( email );
+
+            var data = JSON.parse( get("contact-list") );
+            data[trIndex].name = username;
+            data[trIndex].phone = phone;
+            data[trIndex].email = email;
+            set("contact-list", JSON.stringify(data));
+
+            $('#myModal').modal("hide");
+        });
+
+        //事件代理，绑定删除和修改的事件
+        $(".table-contact").on("click", ".delete", function () {
+
+            var tr = $(this).closest("tr");
+
+            var data = JSON.parse( get("contact-list") );
+            data.splice( tr.index(), 1 );
+            set("contact-list", JSON.stringify(data));
+
+            tr.remove();
+
+        }).on("click", ".edit", function () {
+            var tr = $(this).closest("tr");
+            $(".save-edit").data("trIndex", tr.index());
+            var tds = $(this).parent().siblings();
+            //给修改窗口传递应该显示的字段值
+            $('#myModal').data("form-data", {
+                username: tds.eq(0).text(),
+                phone: tds.eq(1).text(),
+                email: tds.eq(2).text()
+            }).modal("show");
+        });
+
+        //弹出框显示时触发的事件，设置输入框的内容
+        $("#myModal").on("show.bs.modal", function (event) {
+            var data = $(this).data("form-data");
+            var inputs = $(this).find(".form-control");
+            inputs.eq(0).val( data.username );
+            inputs.eq(1).val( data.phone );
+            inputs.eq(2).val( data.email );
+        });
+
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			background: #fff;
+		}
+		a{
+			transition: 0.5s all;
+			-webkit-transition: 0.5s all;
+		}
+		.a{
+			width: 100%;
+			height: 400px;
+		}
+		.b{
+			width: 100%;
+			height: 392px;
+			background: url('http://demo.cssmoban.com/cssthemes4/cpts_967_bpo/images/divider.jpg') no-repeat;
+			background-position: center;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            display: block;
+
+		}
+		.lis{
+			width: 200px;
+			height: 180px;
+			margin: 0 auto;
+			margin-top: 30px;
+			background: pink;
+			transition: all .7s ease-in-out;
+         -webkit-transition: all .7s ease-in-out;
+
+		}
+		.lis:hover{
+			transform: scale(1.1);
+			 -webkit-transform: scale(1.1);
+		}
+		.aa{
+			width: 262px;
+			height: 262px;
+			overflow:hidden;
+			margin: 0 auto;
+		}
+		.aa img{
+			     width: 100%;
+			    transform: scale(1);
+			    transition: all 0.7s ease-in-out;
+			    -webkit-transition: all 0.7s ease-in-out;
+		}
+		.aa img:hover{
+			    transform: scale(1.5);
+		}
+		.ss{
+			width: 60px;
+			height: 60px;
+			border:1px solid red;
+			float: right;
+			margin-right: 40px;
+		}
+		.ss:hover{
+			animation: spin 2s linear infinite;
+		}
+
+		@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+	</style>
+</head>
+<body>
+          
+
+       
+	<div class="a">
+		<!-- <div class="lis"></div> -->
+	</div>
+	<div class="a"></div>
+	<div class="b">
+		<p style="font-size:20px;color:pink;font-weight:600;text-align: "></p>
+	</div>
+	<div class="a"></div>
+	<div class="a">
+		<div class="aa">
+			<!-- <img src="http://demo.cssmoban.com/cssthemes4/cpts_967_bpo/images/blog-img3.jpg" alt=""> -->
+		</div>
+	</div>
+	<div class="a">
+		<div class="ss"></div>
+		<div class="ss"></div>
+		<!-- <div class="ss"></div> -->
+	</div>
+
+
+	
+</body>
+</html>

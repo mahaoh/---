@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>自动完成</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+</head>
+<body>
+
+    <div class="search">
+        <input type="search" placeholder="请输入要搜索的内容">
+        <ul id="list" style="display:none;"></ul>
+    </div>
+
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script>
+    jQuery(function($){
+
+        function set(key, value){
+            localStorage.setItem(key, value);
+        }
+
+        function get(key){
+            return localStorage.getItem(key);
+        }
+
+        var input = $("[type=search]");
+        var list = $("#list");
+
+        input.on("keyup", function(e){
+            //按下任意键
+            //先检查现在所有的数据
+            //从数据里筛选出跟输入的字符有关系的数据
+            //做成li列表显示出来
+            var val = $(this).val();
+            var data = get("datalist");
+            if(data){
+                data = JSON.parse(data);
+                var htmlStr = "";
+                data.filter(function(v){
+                    if(v.indexOf( val ) != -1 && val != ""){
+                        return v;
+                    }
+                }).forEach(function(v){
+                    htmlStr += "<li>"+ v +"</li>";
+                })
+                $("#list").show().html(htmlStr);
+            }
+
+            //按确定键，判断现在有没有输入
+            //判断现在local里有没有
+            //有的话转成数组，push一条进去
+            //没有的话赋值一个数组，数组里只有一条
+            if(e.keyCode == 13){
+                var val = $(this).val();
+                if(val){
+                    var data = get("datalist");
+                    if(data){
+                        data = JSON.parse(data);
+                        data.push(val);
+                    }else{
+                        data = [val];
+                    }
+                    set("datalist", JSON.stringify(data));
+                }
+                console.log( get("datalist") )
+            }
+        })
+        
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>通讯录</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+</head>
+<body>
+	
+    <style>
+        header{
+            font-size: 20px;
+            background: #ccc;
+            line-height: 50px;
+            padding-left: 20px;
+            border: 1px solid #000;
+        }
+        input,button,td,th{
+            font-size: 20px;
+        }
+    </style>
+
+    <header>通讯录</header>
+
+    <form class="form">
+        <div>
+            <label>姓名</label>
+            <input type="text" placeholder="输入姓名" value="zhangsan" name="user" required>
+        </div>
+        <div>
+            <label>电话</label>
+            <input type="tel" placeholder="输入电话" value="10086" name="phone" required>
+        </div>
+        <div>
+            <label>邮箱</label>
+            <input type="email" placeholder="输入邮箱" value="qq@qq.com" name="email" required>
+        </div>
+        <button type="submit" class="save">保存</button>
+    </form>
+
+    <table border="1" width="100%">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>电话</th>
+                <th>邮箱</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script type="text/html" id="tr-temp">
+        {{each list v}}
+        <tr>
+            <td>{{v.user}}</td>
+            <td>{{v.phone}}</td>
+            <td>{{v.email}}</td>
+            <td>
+                <button class="del">删除</button>
+                <button class="edit">修改</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/template-web.js"></script>
+    <script>
+    jQuery(function($){
+
+        function set(name, value){
+            localStorage.setItem(name, value);
+//                    localStorage.setItem(name, value);
+        }
+
+        function get(name){
+            return localStorage.getItem(name);
+//                    return localStorage.getItem(name);
+        }
+
+        $(".save").click(function(event){
+            event.preventDefault();
+            
+            //序列化字符串
+            var str = $(".form").serialize();
+            
+            //user=zhangsan&phone=10086&email=qq%40qq.com
+            //[user=zhangsan,phone=10086,email=qq%40qq.com]
+            //解析字符串
+            var obj = {};
+            str.split("&").forEach(function(v){
+                v = v.split("="); // [user, zhangsan]
+                obj[ v[0] ] = decodeURIComponent( v[1] );
+            })
+            
+            var data = localStorage.getItem("contacts");
+            if(data){
+                data = JSON.parse(data);
+                data.push( obj );
+            }else{
+                data = [ obj ];
+            }
+            localStorage.setItem("contacts", JSON.stringify( data ));
+            
+            var tr = '<tr>'+
+                '<td>'+ obj.user +'</td>'+
+                '<td>'+ obj.phone +'</td>'+
+                '<td>'+ obj.email +'</td>'+
+                '<td>'+
+                    '<button class="del">删除</button>'+
+                    '<button class="edit">修改</button>'+
+                '</td>'+
+            '</tr>';
+            
+            $("table").append(tr);
+            
+        })
+
+        var data = localStorage.getItem("contacts");
+        if(data){
+            data = JSON.parse(data);
+            var trs = "";
+            data.forEach(function(v, i){
+                trs += '<tr>'+
+                    '<td>'+ v.user +'</td>'+
+                    '<td>'+ v.phone +'</td>'+
+                    '<td>'+ v.email +'</td>'+
+                    '<td>'+
+                        '<button class="del">删除</button>'+
+                        '<button class="edit">修改</button>'+
+                    '</td>'+
+                '</tr>';
+            })
+            
+            $("table").append(trs);
+        }
+
+        $("table").on("click", ".del", function(){
+            var tr = $(this).closest("tr");
+            var data = localStorage.getItem("contacts");
+            data = JSON.parse(data);
+            data.splice(tr.index(), 1);
+            localStorage.setItem("contacts", JSON.stringify(data));
+            tr.remove();
+        })
+        
+    })
+    </script>
+</body>
+</html>

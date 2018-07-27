@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inp">
+    <input type="button" id="btn" value="搜索">
+    <ul id="list"></ul>
+
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script>
+        $(function(){
+
+            $("#inp").on("input", function(){
+                var val = $(this).val();
+                if(!val) return $("#list").empty();
+
+                var data = $.cookie("datas");
+                // var data = localStorage.getItem("datas");
+
+                if(data) data = JSON.parse(data);
+                else return;
+
+                data = data.filter(function(v){
+                    return v.indexOf(val) > -1;
+                })
+
+                var str = "";
+                data.forEach(function(v){
+                    str += "<li>"+ v +"</li>";
+                })
+                $("#list").html(str);
+            })
+
+            function save(){
+                var val = $("#inp").val();
+                if(!val) return alert("请输入要搜索的内容");
+                var data = $.cookie("datas");
+                // var data = localStorage.getItem("datas");
+                if(data){
+                    data = JSON.parse(data);
+                    data.push(val);
+                }else{
+                    data = [val];
+                }
+                $.cookie("datas", JSON.stringify( data ));
+                // localStorage.setItem("datas", JSON.stringify( data ));
+            }
+
+            $("#btn").click(function(){
+                save();
+            });
+            
+            $("#inp").keyup(function(e){
+                if(e.keyCode == 13){
+                    save();
+                }else if(e.keyCode == 38){
+                    
+                }
+            })
+
+        })
+    </script>
+</body>
+</html>
